@@ -54,7 +54,7 @@
 
 % set subsection heading fonts and before/after spacing
 \titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
-\titlespacing{\subsection}{0pt}{10pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
 
 % how far to tab for list items with left-aligned date: different fonts need different widths
 \newcommand{\listtabwidth}{2.5cm}
@@ -68,10 +68,10 @@
 \setlength\parindent{0em}
 
 % set line spacing
-\setstretch{0.3}
+\setstretch{0.8}
 
 % define space between list items
-\newcommand{\listitemspace}{0.25em}
+\newcommand{\listitemspace}{0.4em}
 
 % make unordered lists without bullets and use compact spacing
 \renewenvironment{itemize}
@@ -99,9 +99,9 @@
 % define hyperlink appearance and metadata for pdf properties
 \hypersetup{
     colorlinks  = true,
-    urlcolor    = black,
+    urlcolor    = grey,
     citecolor   = black,
-    linkcolor   = black,
+    linkcolor   = grey,
     pdfauthor   = {\myname},
     pdfkeywords = {Deep Learning, Machine Learning, Smart Meter ,Social Computation},
     pdftitle    = {\myname: Curriculum Vitae},
@@ -121,6 +121,7 @@
     \begin{minipage}[t]{0.700\textwidth}
         % current primary affiliation, left-aligned
         Department of City and Regional Planning\\
+        College of Environmental Design\\
         University of California, Berkeley
     \end{minipage}
     \begin{minipage}[t]{0.295\textwidth}
