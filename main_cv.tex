@@ -85,17 +85,13 @@ newcommand{\listtabwidth}{2cm}
 \TabPositions{\listtabwidth}
 \newlist{tablist}{description}{3}
 \setlist[tablist]{
-    leftmargin=0pt,
-    labelindent=0pt,
+    leftmargin=\listtabwidth,
+    labelindent=0em,
     topsep=0em,
     partopsep=0em,
     itemsep=\listitemspace,
     parsep=\listitemspace,
-    font=\normalfont
-}
-
-\newcommand{\mainitem}[2]{\item[#1] \tabto{\listtabwidth}#2}
-\newcommand{\subitem}[2]{\item[#1] \tabto{\listtabwidth}\hspace{1cm}#2}  % Adds 1cm space before subitem text
+    font=\normalfont}
 
 % print only the month and year when using \today
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
