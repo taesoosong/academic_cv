@@ -55,6 +55,10 @@
 \titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
 \titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
 
+% how far to tab for list items with left-aligned date: different fonts need different widths
+newcommand{\listtabwidth}{2cm}
+\newcommand{\listitemspace}{0.5em}
+
 % set page margins (assumes letter paper)
 \geometry{body={6.5in, 9.0in},
     left=1.0in,
@@ -77,9 +81,6 @@
                 \setlength{\parsep}{\listitemspace}}}
 {\end{list}}
 
-% how far to tab for list items with left-aligned date: different fonts need different widths
-newcommand{\listtabwidth}{2cm}
-\newcommand{\listitemspace}{0.5em}
 
 % make tabbed lists so content is left-aligned next to years
 \TabPositions{\listtabwidth}
