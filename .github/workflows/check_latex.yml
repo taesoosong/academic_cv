@@ -17,9 +17,9 @@ jobs:
       - name: Compile LaTex document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: song_taesoo_cv.tex
+          root_file: main_cv.tex
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: song_taesoo_cv.pdf
+          path: main_cv.pdf
