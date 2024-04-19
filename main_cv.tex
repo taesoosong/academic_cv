@@ -94,33 +94,6 @@
     parsep=\listitemspace,
     font=\normalfont}
 
-#### REMOVE THIS ######
-
-% Define tab stops based on a standard width
-\newcommand{\listtabwidth}{2cm}
-\TabPositions{\listtabwidth, 2.5cm}  % Adding a second tab stop for subitems if needed
-
-% Define a new list-like environment with tab stops
-\newlist{tablist}{description}{1}
-\setlist[tablist,1]{
-    leftmargin=0pt,
-    labelwidth=0pt,
-    itemindent=0pt,
-    labelsep=0pt,
-    align=left,
-    font=\normalfont,
-    topsep=0em,
-    partopsep=0em,
-    itemsep=0.5em,  % Adjusted for better visual spacing
-    parsep=0.5em
-}
-
-% Define custom tabbing commands for items and subitems
-\newcommand{\mainitem}[2]{\item[#1] \tabto{2cm}#2}
-\newcommand{\subitem}[1]{\tabto{2.5cm}#1}  % Slightly indented subitems
-
-#### REMOVE THIS ######
-
 \begin{document}
 
 \begin{tablist}
@@ -176,10 +149,9 @@
     \section*{Education}
     
     \begin{tablist}
-      \mainitem[Ph.D.] City and Regional Planning, University of California, Berkeley, USA, 2021-
-               \subitem - Dissertation: 
-      \mainitem[M.S.] Urban Planning and Engineering, Yonsei University, Seoul, South Korea, 2017-2019
-      \mainitem[B.A.] Economics, Yonsei University, Seoul, South Korea, 2012-2017
+      \item[Ph.D.] \tab{}City and Regional Planning, University of California, Berkeley, USA, 2021-
+      \item[M.S.] \tab{}Urban Planning and Engineering, Yonsei University, Seoul, South Korea, 2017-2019
+      \item[B.A.] \tab{}Economics, Yonsei University, Seoul, South Korea, 2012-2017
     \end{tablist}
     
     \section*{Research Areas}
