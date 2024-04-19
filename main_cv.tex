@@ -43,9 +43,6 @@
 \usepackage{ebgaramond} % document's serif typeface
 \usepackage{tgheros}    % document's sans serif typeface
 
-% how far to tab for list items with left-aligned date: different fonts need different widths
-\newcommand{\listtabwidth}{2cm}
-
 % define font to use as document's title
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
 
@@ -80,16 +77,25 @@
                 \setlength{\parsep}{\listitemspace}}}
 {\end{list}}
 
+% how far to tab for list items with left-aligned date: different fonts need different widths
+newcommand{\listtabwidth}{2cm}
+\newcommand{\listitemspace}{0.5em}
+
 % make tabbed lists so content is left-aligned next to years
-\TabPositions{\listtabwidth}
+\TabPositions{\listtabwidth, \subitemtabwidth}
 \newlist{tablist}{description}{3}
-\setlist[tablist]{leftmargin=\listtabwidth,
-    labelindent=0em,
+\setlist[tablist]{
+    leftmargin=0pt,
+    labelindent=0pt,
     topsep=0em,
     partopsep=0em,
     itemsep=\listitemspace,
     parsep=\listitemspace,
-    font=\normalfont}
+    font=\normalfont
+}
+
+\newcommand{\mainitem}[2]{\item[#1] \tabto{\listtabwidth}#2}
+\newcommand{\subitem}[2]{\item[#1] \tabto{\listtabwidth}\hspace{1cm}#2}  % Adds 1cm space before subitem text
 
 % print only the month and year when using \today
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
@@ -135,6 +141,7 @@
     
     \begin{tablist}
       \item[Ph.D.] \tab{}City and Regional Planning, University of California, Berkeley, USA, 2021-
+      \subitem[Ph.D.] \tab{}Dissertation: Policy, Planning, and Housing Challenges of Asian Americans
       \item[M.S.] \tab{}Urban Planning and Engineering, Yonsei University, Seoul, South Korea, 2017-2019
       \item[B.A.] \tab{}Economics, Yonsei University, Seoul, South Korea, 2012-2017
     \end{tablist}
