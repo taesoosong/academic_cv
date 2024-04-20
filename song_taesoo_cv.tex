@@ -96,12 +96,15 @@
 % print only the month and year when using \today
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
+% Define a new color
+\definecolor{marineblue2}{rgb}{0.05,0.1,0.5}
+
 % define hyperlink appearance and metadata for pdf properties
 \hypersetup{
     colorlinks  = true,
-    urlcolor    = blue,
-    citecolor   = blue,
-    linkcolor   = blue,
+    urlcolor    = marineblue2,
+    citecolor   = marineblue2,
+    linkcolor   = marineblue2,
     pdfauthor   = {\myname},
     pdfkeywords = {Deep Learning, Machine Learning, Smart Meter ,Social Computation},
     pdftitle    = {\myname: Curriculum Vitae},
@@ -117,10 +120,10 @@
     % \namefont{\myname}
 
   % Centering your name
-  {
-  \centering
-  \namefont{\myname}\par 
-  }
+  % {
+  % \centering
+  % \namefont{\myname}\par 
+  % }
 
     % affiliation and contact info blocks
     \vspace{1em}
@@ -158,6 +161,7 @@
       \item[B.A.] \tab{}\textbf{Economics, Yonsei University}, Seoul, South Korea, 2012-2017
       \begin{itemize}
         \item Honors: Graduated with the Highest Honors (Valedictorian)
+        \vspace{-0.5em}
         \item Military Service: English Translator (Sergeant) at Korea Defence Intellligence Command (Apr. 2013-Jan. 2015)
     \end{itemize}
     \end{tablist}
