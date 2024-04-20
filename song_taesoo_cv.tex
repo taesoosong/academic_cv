@@ -96,15 +96,13 @@
 % print only the month and year when using \today
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
-% Define a new color
-\definecolor{marineblue2}{rgb}{0.05,0.1,0.5}
 
 % define hyperlink appearance and metadata for pdf properties
 \hypersetup{
     colorlinks  = true,
-    urlcolor    = marineblue2,
-    citecolor   = marineblue2,
-    linkcolor   = marineblue2,
+    urlcolor    = grey,
+    citecolor   = grey,
+    linkcolor   = grey,
     pdfauthor   = {\myname},
     pdfkeywords = {Deep Learning, Machine Learning, Smart Meter ,Social Computation},
     pdftitle    = {\myname: Curriculum Vitae},
@@ -117,7 +115,7 @@
     \raggedright{}
 
     % display your name as the document title
-    % \namefont{\myname}
+    \namefont{\myname}
 
   % Centering your name
   % {
