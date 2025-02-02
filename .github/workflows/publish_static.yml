@@ -34,14 +34,14 @@ jobs:
       - name: List files in directory (for debugging)
         run: ls -la
       - name: Upload PDF file
-        uses: actions/upload-artifact@v4  # Ensure artifact upload uses v4
+        uses: actions/upload-artifact@v4  # Ensure this is v4
         with:
-          name: song-taesoo-cv-pdf  # Same name as in check_latex.yml
+          name: song-taesoo-cv-pdf
           path: song_taesoo_cv.pdf
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # Keep using v2 for pages artifact
+        uses: actions/upload-pages-artifact@v2  # Correct version for this action
         with:
-          path: '.'  # Upload the entire repo or specific paths as needed
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2  # Use the latest stable version
+        uses: actions/deploy-pages@v2  # Correct version for this action
