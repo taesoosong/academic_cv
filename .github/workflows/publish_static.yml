@@ -26,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5  # Updated to v5
       - name: Compile LaTex document
         uses: xu-cheng/latex-action@v2
         with:
@@ -34,14 +34,14 @@ jobs:
       - name: List files in directory (for debugging)
         run: ls -la
       - name: Upload PDF file
-        uses: actions/upload-artifact@v4  # Ensure this is v4
+        uses: actions/upload-artifact@v4  # Ensure it's v4 for uploading artifacts
         with:
           name: song-taesoo-cv-pdf
           path: song_taesoo_cv.pdf
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # Correct version for this action
+        uses: actions/upload-pages-artifact@v3  # Updated to v3
         with:
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2  # Correct version for this action
+        uses: actions/deploy-pages@v4  # Updated to v4
