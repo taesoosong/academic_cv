@@ -38,11 +38,11 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: song_taesoo_cv.tex
-#       - name: Upload PDF file
-#         uses: actions/upload-artifact@v3
-#         with:
-#           name: PDF
-#           path: song_taesoo_cv.pdf
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: song_taesoo_cv.pdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
