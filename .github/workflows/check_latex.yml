@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Latest version for checking out code
       - name: Compile LaTex document
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v2  # Make sure you are using the latest stable version of the latex action
         with:
           root_file: song_taesoo_cv.tex
       - name: List files in directory (for debugging)
@@ -23,5 +23,5 @@ jobs:
       - name: Upload PDF file
         uses: actions/upload-artifact@v4  # Use v4 for artifact upload
         with:
-          name: song-taesoo-cv-pdf  # Ensure unique artifact name if using a matrix job
+          name: song-taesoo-cv-pdf
           path: song_taesoo_cv.pdf
