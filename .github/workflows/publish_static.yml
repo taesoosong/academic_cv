@@ -1,23 +1,17 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
     paths-ignore:
       - "README.md"
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -30,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Compile LaTex document
@@ -40,15 +34,14 @@ jobs:
       - name: List files in directory (for debugging)
         run: ls -la
       - name: Upload PDF file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # Ensure artifact upload uses v4
         with:
-          name: PDF
+          name: song-taesoo-cv-pdf  # Same name as in check_latex.yml
           path: song_taesoo_cv.pdf
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v2  # Keep using v2 for pages artifact
         with:
-          # Upload entire repository
-          path: '.'
+          path: '.'  # Upload the entire repo or specific paths as needed
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v2  # Use the latest stable version
