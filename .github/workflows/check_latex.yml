@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Compile LaTex document
         uses: xu-cheng/latex-action@v2
         with:
@@ -21,7 +21,7 @@ jobs:
       - name: List files in directory (for debugging)
         run: ls -la
       - name: Upload PDF file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # Use v4 for artifact upload
         with:
-          name: PDF
-          path: main_cv.pdf
+          name: song-taesoo-cv-pdf  # Ensure unique artifact name if using a matrix job
+          path: song_taesoo_cv.pdf
