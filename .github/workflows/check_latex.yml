@@ -8,18 +8,6 @@ on:
     paths-ignore:
       - "README.md"
       
-.github/workflows/check_latex.yml
-
-name: Check Latex Compilation
-
-on:
-  push:
-    paths-ignore:
-      - "README.md"
-  pull_request:
-    paths-ignore:
-      - "README.md"
-      
 jobs:
   build:
     runs-on: ubuntu-latest
