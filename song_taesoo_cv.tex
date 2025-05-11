@@ -12,7 +12,7 @@
 \usepackage{enumitem} % enumerate with [resume] option
 \usepackage{titlesec} % allow custom section fonts
 \usepackage{setspace} % custom line spacing
-\usepackage{multicol} % Include in your preamble
+\usepackage{tabularx} % in preamble
 \usepackage[maxcitenames=6, minnames=3 ]{biblatex}
 \addbibresource[]{biblio.bib}
 
@@ -155,15 +155,14 @@
     \end{tablist}
 
 \section*{Research Areas}
-\begin{multicols}{2}
-\begin{itemize}[leftmargin=*]
-  \item Housing and Land Use Policy
-  \item Residential Mobility and Neighborhood Change
-  \item Immigration
-  \item Asian American Studies
-  \item Urban Data Analytics
-\end{itemize}
-\end{multicols}
+\begin{tabularx}{\textwidth}{@{}l X}
+  $\bullet$ & Housing and Land Use Policy \\
+  $\bullet$ & Residential Mobility and Neighborhood Change \\
+  $\bullet$ & Immigration \\
+  $\bullet$ & Asian American Studies \\
+  $\bullet$ & Urban Data Analytics \\
+\end{tabularx}
+
     
     % \section*{Research Areas}
       % Housing and Land Use Policy, Residential Mobility and Neighborhood Change, Immigration,\\
