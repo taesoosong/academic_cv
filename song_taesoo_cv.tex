@@ -26,33 +26,51 @@
 
 % --- Lists (clear separation for top-level items) ---
 \usepackage{enumitem}
+\usepackage{needspace}
 \newcommand{\listitemspace}{0.30em}
 
 % Label+content rows (Education, Grants, etc.)
 \newlist{tablist}{description}{3}
-\setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
-  itemsep=\dimexpr0.40\baselineskip\relax, parsep=0pt, topsep=0pt, partopsep=0pt,
-  font=\normalfont}
+\setlist[tablist]{%
+  leftmargin=\listtabwidth,
+  labelsep=0.6em,
+  labelindent=0pt,
+  itemsep=\dimexpr0.40\baselineskip\relax,
+  parsep=0pt,
+  topsep=0pt,
+  partopsep=0pt,
+  font=\normalfont
+}
 
-% For 1st-level dotless subpoints
+% Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
+\newlist{subpoints}{itemize}{1}
 \setlist[subpoints]{%
-  label={}, leftmargin=1.7em,
+  label={}, 
+  leftmargin=1.7em,
   topsep=\dimexpr0.22\baselineskip\relax,
   itemsep=\dimexpr0.42\baselineskip\relax,
-  parsep=0pt, partopsep=0pt,
-  before=\let\orig@item\item\def\item{\needspace{4\baselineskip}\orig@item},
+  parsep=0pt, 
+  partopsep=0pt,
+  % ensure each \item has room; if not, push to next page
+  before=\let\origItem\item\def\item{\needspace{4\baselineskip}\origItem},
   after=\vspace{\dimexpr0.14\baselineskip\relax}
 }
 
-% For 2nd-level dotless subpoints
+% Dotless second-level details (courses; venues/dates)
+\newlist{subpoints2}{itemize}{1}
 \setlist[subpoints2]{%
-  label={}, leftmargin=2.7em,
+  label={}, 
+  leftmargin=2.7em,
   topsep=\dimexpr0.18\baselineskip\relax,
   itemsep=\dimexpr0.28\baselineskip\relax,
-  parsep=0pt, partopsep=0pt,
-  before=\let\orig@item\item\def\item{\needspace{3\baselineskip}\orig@item},
+  parsep=0pt, 
+  partopsep=0pt,
+  before=\let\origItem\item\def\item{\needspace{3\baselineskip}\origItem},
   after=\relax
 }
+
+% Back-compat alias (so existing \begin{subpoints1} ... works)
+\newenvironment{subpoints1}{\begin{subpoints}}{\end{subpoints}}
 
 % --- Helpers ---
 \newcommand{\money}[1]{(\$#1)}
