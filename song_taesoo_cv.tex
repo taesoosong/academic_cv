@@ -1,20 +1,21 @@
 \documentclass[10pt,letterpaper]{article}
 
-% ------- Encoding, language, micro-typography -------
+% Encoding, language, micro-typography
 \usepackage[T1]{fontenc}
 \usepackage[USenglish]{babel}
 \usepackage{microtype}
 
-% ------- Fonts -------
-\usepackage{ebgaramond}   % serif
-\usepackage{tgheros}      % sans for headings
+% Fonts
+\usepackage{ebgaramond}   % serif text
+\usepackage{tgheros}      % sans headings
 
-% ------- Layout -------
+% Page layout
 \usepackage[margin=0.7in]{geometry}
 \usepackage{setspace}
 \setstretch{1.00}         % readable body leading
+\setlength\parindent{0pt}
 
-% ------- Lists and tabbed descriptions -------
+% Lists and tabbed descriptions
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.25em}
 
@@ -26,7 +27,6 @@
 \setlength{\parsep}{\listitemspace}}}
 {\end{list}}
 
-% tabbed description list for year or degree labels
 \usepackage{tabto}
 \usepackage{tabularx}
 \newcommand{\listtabwidth}{2.2cm}
@@ -43,7 +43,7 @@
   font=\normalfont\itshape
 }
 
-% ------- Section headings -------
+% Section headings
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
 \newcommand{\SectionRule}{\vspace{0.2\baselineskip}\titlerule[0.6pt]\vspace{0.15\baselineskip}}
@@ -59,12 +59,11 @@
   {}{0pt}{}
 \titlespacing{\subsection}{0pt}{0.9\baselineskip}{0.25\baselineskip}
 
-% ------- Dates and spacing -------
+% Date utility (if needed)
 \usepackage{datetime}
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
-\setlength\parindent{0pt}
 
-% ------- Links -------
+% Links
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   colorlinks  = true,
@@ -77,31 +76,7 @@
   pdfpagemode = UseNone
 }
 
-% ------- Bibliography (optional, if you cite) -------
-\usepackage[maxcitenames=6,minnames=3]{biblatex}
-\addbibresource{biblio.bib}
-
-% ------- Author name bolding in bibliography entries (if used) -------
-\usepackage{xstring}
-\usepackage{etoolbox}
-\newboolean{bold}
-\newcommand{\makeauthorsbold}[1]{%
-\DeclareNameFormat{author}{%
-  \setboolean{bold}{false}%
-  \renewcommand{\do}[1]{\expandafter\ifstrequal\expandafter{\namepartfamily}{####1}{\setboolean{bold}{true}}{}}%
-  \docsvlist{#1}%
-  \ifthenelse{\value{listcount}=1}
-  {{\expandafter\ifthenelse{\boolean{bold}}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}}
-  {\ifnumless{\value{listcount}}{\value{liststop}}
-   {\expandafter\ifthenelse{\boolean{bold}}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}%
-   {\expandafter\ifthenelse{\boolean{bold}}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
-  }%
-  \ifthenelse{\value{listcount}<\value{liststop}}{\addcomma\space}{}%
-}%
-}
-\makeauthorsbold{Song, T.}
-
-% ------- Name banner -------
+% Name banner
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge #1}}
 
 \begin{document}
@@ -161,15 +136,10 @@ Asian American Studies & Urban Data Analytics
 \subsection{Peer reviewed Journal Articles}
 \begin{tablist}
   \item[2025] \tab{}Chapple, K. \& \textbf{Song, T.} \href{https://doi.org/10.1080/01944363.2024.2319293}{Can New Housing Supply Mitigate Displacement and Exclusion Evidence from Los Angeles and San Francisco.} \emph{Journal of the American Planning Association} 91 1 1–15.
-
   \item[2024] \tab{}Ramiller, A., \textbf{Song, T.}, Parker, M. \& Chapple, K. \href{https://www.jstor.org/stable/48799257}{Residential Mobility and Big Data: Assessing the Validity of Consumer Reference Datasets.} \emph{Cityscape} 26 3 227–239.
-
   \item[2024] \tab{}\textbf{Song, T.} \& Chapple, K. \href{https://doi.org/10.1177/00420980241244699}{Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas.} \emph{Urban Studies} 61 13 2603–2622.
-
   \item[2022] \tab{}Lee, S., \textbf{Song, T.} \& Lim, U. \href{https://doi.org/10.1016/j.cities.2022.103768}{How are Happy and Unhappy People Differently Affected by Their Local Environments The Heterogeneous Relationship Between Happiness and Local Environments in Seoul, Korea.} \emph{Cities} 127 103768.
-
   \item[2021] \tab{}Lee, S., \textbf{Song, T.} \& Lim, U. \href{https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11025769}{Wage Premium of Korean Chinese Immigrant Workers in the Seoul Metropolitan Labor Market.} \emph{GRI Review} 23 3 191–214 in Korean.
-
   \item[2020] \tab{}\textbf{Song, T.} \& Lim, U. \href{https://www.koreascience.or.kr/article/JAKO202030161655441.page}{The Multilevel Effects of Regional Deprivation on Perceived Upward Social Mobility of Residents.} \emph{Journal of the Korean Regional Science Association} 36 3 1–14 in Korean.
 \end{tablist}
 
@@ -266,7 +236,6 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
 \end{tablist}
 
 \subsection{Conference Papers Presented\footnote{* Presented by other authors.}}
-
 \begin{itemize}
   \item How Does Suburban Housing Supply Shape Asian American Segregation \textbf{Song, T.}
     \begin{itemize}
@@ -379,7 +348,5 @@ Urban Affairs Association
   \item[2024– ] \tab{}\href{https://asiansarestrong.org/}{Asians Are Strong}, San Francisco, CA, USA
   \item[2024– ] \tab{}Community Safety Buddies Oakland, Oakland, CA, USA
 \end{tablist}
-
-% \printbibliography  % if you need references section
 
 \end{document}
