@@ -46,7 +46,14 @@
 % Section headings
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
-\newcommand{\SectionRule}{\vspace{0.2\baselineskip}\titlerule[0.6pt]\vspace{0.15\baselineskip}}
+
+% 1) Replace titlerule in the section rule macro
+\newcommand{\SectionRule}{%
+  \vspace{0.2\baselineskip}\noindent\rule{\linewidth}{0.6pt}\vspace{0.15\baselineskip}}
+
+% 2) Replace the underline below your name
+\noindent\rule{\linewidth}{0.8pt}
+
 
 \titleformat{\section}
   {\sffamily\bfseries\Large\scshape}
