@@ -1,13 +1,13 @@
 \documentclass[11pt,letterpaper]{article}
 
-% Encoding and typography
+% Encoding & typography
 \usepackage[T1]{fontenc}
 \usepackage[USenglish]{babel}
 \usepackage{microtype}
 
 % Fonts
-\usepackage{ebgaramond}   % serif text
-\usepackage{tgheros}      % sans for headings
+\usepackage{ebgaramond}   % body serif
+\usepackage{tgheros}      % sans headings
 
 % Layout
 \usepackage[margin=0.7in]{geometry}
@@ -15,7 +15,7 @@
 \setstretch{1.00}
 \setlength\parindent{0pt}
 
-% Lists and tabbed descriptions
+% Lists & tabbed descriptions
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.25em}
 \renewenvironment{itemize}
@@ -27,18 +27,21 @@
 
 \usepackage{tabto}
 \usepackage{tabularx}
-\newcommand{\listtabwidth}{2.2cm}
+\newcommand{\listtabwidth}{2.0cm} % slightly narrower gutter
 \TabPositions{\listtabwidth}
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
   topsep=0.3\baselineskip,partopsep=0pt,itemsep=\listitemspace,parsep=\listitemspace,
   font=\normalfont} % upright labels (no italics)
 
+% Gentle overfull handling
+\setlength{\emergencystretch}{2em}
+
 % Helpers
 \newcommand{\money}[1]{(\$#1)}  % e.g., \money{4,500}
 \newcommand{\term}[1]{(#1)}     % e.g., \term{2024Su}
 
-% Headings (freeze sizes so 11pt body does not inflate them)
+% Headings (sizes pinned so 11pt body doesn't inflate them)
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
 \newcommand{\SectionRule}{%
@@ -47,22 +50,23 @@
   \vspace{0.06\baselineskip}%
 }
 \titleformat{\section}
-  {\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont} % pinned size
+  {\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}
   {}{0pt}{\MakeUppercase}
   [\SectionRule]
 \titlespacing{\section}{0pt}{0.8\baselineskip}{0.25\baselineskip}
 \titleformat{\subsection}
-  {\sffamily\bfseries\fontsize{11}{13}\selectfont} % pinned to body size
+  {\sffamily\bfseries\fontsize{11}{13}\selectfont}
   {}{0pt}{}
 \titlespacing{\subsection}{0pt}{0.6\baselineskip}{0.18\baselineskip}
 
-% Links: muted color on screen, auto black in print
-\usepackage[ocgcolorlinks]{hyperref}
+% Links: muted color; single hyperref load (PDF.js-safe)
 \usepackage{xcolor}
-\definecolor{linktone}{HTML}{1B3A57} % dark muted blue
+\definecolor{linktone}{HTML}{1B3A57}
+\usepackage[colorlinks=true,linkcolor=linktone,urlcolor=linktone,citecolor=linktone]{hyperref}
 \hypersetup{
-  colorlinks=true, linkcolor=linktone, urlcolor=linktone, citecolor=linktone,
-  pdfauthor={Taesoo Song}, pdftitle={Taesoo Song: Curriculum Vitae}, pdfsubject={CV}
+  pdfauthor={Taesoo Song},
+  pdftitle={Taesoo Song: Curriculum Vitae},
+  pdfsubject={CV}
 }
 
 % Name banner
@@ -74,7 +78,6 @@
 % ===== Header =====
 \namefont{Taesoo Song}
 \noindent\rule{\linewidth}{0.8pt}
-\vspace{0.2\baselineskip} % tighter gap to contact block
 
 \begin{minipage}[t]{0.66\textwidth}
 Department of City and Regional Planning\\
@@ -323,5 +326,9 @@ Urban Affairs Association
   \item[2024– ] \tab{}\href{https://asiansarestrong.org/}{Asians Are Strong}, San Francisco, CA, USA
   \item[2024– ] \tab{}Community Safety Buddies Oakland, Oakland, CA, USA
 \end{tablist}
+
+% ===== Footer =====
+\vspace{1.0\baselineskip}
+{\footnotesize Last updated: September 2025}
 
 \end{document}
