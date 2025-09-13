@@ -22,11 +22,13 @@
 \newcommand{\listtabwidth}{2.0cm}
 \TabPositions{\listtabwidth}
 
-% --- Page-break control for list items ---
-\usepackage{needspace} % <- only once
+% --- Page-break control ---
+\usepackage{needspace} % provides \Needspace{<len>}
+\newcommand{\spitem}{\Needspace{2.6\baselineskip}\item} % safe per-item guard
 
-% --- Lists (clear separation + safe page breaks) ---
+% --- Lists (clear separation) ---
 \usepackage{enumitem}
+\newcommand{\listitemspace}{0.30em}
 
 % Label+content rows (Education, Grants, etc.)
 \newlist{tablist}{description}{3}
@@ -49,10 +51,7 @@
   topsep=0.22\baselineskip,
   itemsep=0.42\baselineskip,
   parsep=0pt,
-  partopsep=0pt,
-  % Safer needspace in lists: ensure vertical mode first
-  before=\begingroup\let\olditem\item \renewcommand{\item}{\par\needspace{3\baselineskip}\olditem},
-  after=\endgroup \vspace{0.14\baselineskip}
+  partopsep=0pt
 }
 
 % Dotless second-level details (courses; venues/dates)
@@ -64,11 +63,10 @@
   itemsep=0.28\baselineskip,
   parsep=0pt,
   partopsep=0pt,
-  before=\begingroup\let\olditem\item \renewcommand{\item}{\par\needspace{2.4\baselineskip}\olditem},
-  after=\endgroup
+  before=\Needspace{2.8\baselineskip} % avoid orphaned first subitem
 }
 
-% Back-compat alias (if legacy content uses it)
+% Back-compat alias for legacy name
 \newenvironment{subpoints1}{\begin{subpoints}}{\end{subpoints}}
 
 % --- Helpers ---
@@ -132,19 +130,19 @@ University of California, Berkeley
 \begin{tablist}
   \item[Ph.D.] \tab{}\textbf{City and Regional Planning, University of California, Berkeley}, 2026 (Expected)
     \begin{subpoints}
-      \item Designated Emphasis in Global Metropolitan Studies
+      \spitem Designated Emphasis in Global Metropolitan Studies
     \end{subpoints}
     \begin{subpoints2}
-      \item Dissertation: Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance
-      \item Committee: Carolina Reid; Karen Chapple (co-chairs); Daniel Chatman; Irene Bloemraad
-      \item Russell Sage Foundation Dissertation Research Grant \term{2025}
+      \spitem Dissertation: Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance
+      \spitem Committee: Carolina Reid; Karen Chapple (co-chairs); Daniel Chatman; Irene Bloemraad
+      \spitem Russell Sage Foundation Dissertation Research Grant \term{2025}
     \end{subpoints2}
 
   \item[M.S.] \tab{}\textbf{Urban Planning and Engineering, Yonsei University}, 2019
 
   \item[B.A.] \tab{}\textbf{Economics, Yonsei University}, 2017
     \begin{subpoints}
-      \item Graduated with the Highest Honors \term{Valedictorian}
+      \spitem Graduated with the Highest Honors \term{Valedictorian}
     \end{subpoints}
 \end{tablist}
 
@@ -190,10 +188,10 @@ Asian American Studies & Urban Data Analytics
 % ===== Work in Progress =====
 \section{Work in Progress}
 \begin{subpoints}
-  \item \textbf{Song, T.} Anti-immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
-  \item Reid, C., \& \textbf{Song, T.} The Implications of Naturally Occurring Affordable Housing (NOAH) Sales for Residential Mobility. Invited to revise and resubmit at \emph{Journal of the American Planning Association}.
-  \item Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
-  \item \textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership, 2000–2019. Under review at \emph{Housing Studies}.
+  \spitem \textbf{Song, T.} Anti-immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
+  \spitem Reid, C., \& \textbf{Song, T.} The Implications of Naturally Occurring Affordable Housing (NOAH) Sales for Residential Mobility. Invited to revise and resubmit at \emph{Journal of the American Planning Association}.
+  \spitem Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
+  \spitem \textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership, 2000–2019. Under review at \emph{Housing Studies}.
 \end{subpoints}
 
 % ===== Grants and Fellowship =====
@@ -232,30 +230,30 @@ Asian American Studies & Urban Data Analytics
 
 \subsection*{University of California, Berkeley}
 \begin{subpoints}
-  \item \textbf{City and Regional Planning} — Instructor of Record
+  \spitem \textbf{City and Regional Planning} — Instructor of Record
     \begin{subpoints2}
-      \item U.S. Housing, Planning, and Policy \term{2024Su}
-      \item Introduction to Urban Data Analytics \term{2023Su}
+      \spitem U.S. Housing, Planning, and Policy \term{2024Su}
+      \spitem Introduction to Urban Data Analytics \term{2023Su}
     \end{subpoints2}
-  \item \textbf{D-Lab} — Workshop (Assistant) Instructor
+  \spitem \textbf{D-Lab} — Workshop (Assistant) Instructor
     \begin{subpoints2}
-      \item \textbf{R:} Fundamentals \term{2024F, 2025F}; Data Wrangling \term{2025F}; Data Visualization \term{2025S}; Geospatial Fundamentals \term{2024F, 2025F}; Census Fundamentals \term{2025S}; SQL Fundamentals \term{2025S}; AI-assisted Coding \term{2025F}
-      \item \textbf{Python:} Geospatial Fundamentals \term{2025S}; Machine Learning Fundamentals \term{2025S}
-      \item \textbf{Excel:} Data Analysis Introduction \term{2025S}; Charts, Pivot Tables, and VLOOKUP \term{2025S}
+      \spitem \textbf{R:} Fundamentals \term{2024F, 2025F}; Data Wrangling \term{2025F}; Data Visualization \term{2025S}; Geospatial Fundamentals \term{2024F, 2025F}; Census Fundamentals \term{2025S}; SQL Fundamentals \term{2025S}; AI-assisted Coding \term{2025F}
+      \spitem \textbf{Python:} Geospatial Fundamentals \term{2025S}; Machine Learning Fundamentals \term{2025S}
+      \spitem \textbf{Excel:} Data Analysis Introduction \term{2025S}; Charts, Pivot Tables, and VLOOKUP \term{2025S}
     \end{subpoints2}
 \end{subpoints}
 
 \subsection*{Yonsei University}
 \begin{subpoints}
-  \item \textbf{Underwood International College} — Teaching Assistant
+  \spitem \textbf{Underwood International College} — Teaching Assistant
     \begin{subpoints2}
-      \item World History Group II \term{2019S}
-      \item World History Group I \term{2018F, 2019S}
+      \spitem World History Group II \term{2019S}
+      \spitem World History Group I \term{2018F, 2019S}
     \end{subpoints2}
-  \item \textbf{Urban Planning and Engineering} — Teaching Assistant
+  \spitem \textbf{Urban Planning and Engineering} — Teaching Assistant
     \begin{subpoints2}
-      \item Urban and Regional Economics \term{2018S}
-      \item National and Regional Planning \term{2017F}
+      \spitem Urban and Regional Economics \term{2018S}
+      \spitem National and Regional Planning \term{2017F}
     \end{subpoints2}
 \end{subpoints}
 
@@ -271,42 +269,42 @@ ACSP: Association of Collegiate Schools of Planning; APPAM: Association for Publ
 \subsection{Conference Papers Presented}
 {\footnotesize\emph{* Presented by other authors.}}\par\vspace{.35\baselineskip}
 \begin{subpoints}
-  \item \textbf{Song, T.} How Does Suburban Housing Supply Shape Asian American Segregation?
+  \spitem \textbf{Song, T.} How Does Suburban Housing Supply Shape Asian American Segregation?
     \begin{subpoints2}
-      \item \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}
-      \item \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}
+      \spitem \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}
+      \spitem \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}
     \end{subpoints2}
 
-  \item Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City.
+  \spitem Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City.
     \begin{subpoints2}
-      \item \emph{UAA}, Vancouver, BC. Apr. 17, 2025*
+      \spitem \emph{UAA}, Vancouver, BC. Apr. 17, 2025*
     \end{subpoints2}
 
-  \item Reid, C., \& \textbf{Song, T.} Does Apartment Flipping Fuel Residential Displacement? Insights from Assessor and Mobility Data.
+  \spitem Reid, C., \& \textbf{Song, T.} Does Apartment Flipping Fuel Residential Displacement? Insights from Assessor and Mobility Data.
     \begin{subpoints2}
-      \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024
+      \spitem \emph{ACSP}, Seattle, WA. Nov. 18, 2024
     \end{subpoints2}
 
-  \item \textbf{Song, T.} Reassessing the Heterogeneity of Asian American Housing Outcomes, 2000–2019.
+  \spitem \textbf{Song, T.} Reassessing the Heterogeneity of Asian American Housing Outcomes, 2000–2019.
     \begin{subpoints2}
-      \item \emph{ACSP}, Seattle, WA. Nov. 19, 2024
+      \spitem \emph{ACSP}, Seattle, WA. Nov. 19, 2024
     \end{subpoints2}
 
-  \item Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K. Measuring Residential Mobility Using Consumer Reference Datasets.
+  \spitem Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K. Measuring Residential Mobility Using Consumer Reference Datasets.
     \begin{subpoints2}
-      \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024*
-      \item \emph{UAA}, New York, NY. Apr. 26, 2024*
+      \spitem \emph{ACSP}, Seattle, WA. Nov. 18, 2024*
+      \spitem \emph{UAA}, New York, NY. Apr. 26, 2024*
     \end{subpoints2}
 
-  \item \textbf{Song, T.} Affordability for Whom? The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets.
+  \spitem \textbf{Song, T.} Affordability for Whom? The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets.
     \begin{subpoints2}
-      \item \emph{ACSP}, Chicago, IL. Oct. 21, 2023
+      \spitem \emph{ACSP}, Chicago, IL. Oct. 21, 2023
     \end{subpoints2}
 
-  \item \textbf{Song, T.}, \& Chapple, K. Does Gentrification Constrain Housing Markets for Low-Income Households? Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas.
+  \spitem \textbf{Song, T.}, \& Chapple, K. Does Gentrification Constrain Housing Markets for Low-Income Households? Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas.
     \begin{subpoints2}
-      \item \emph{UAA}, New York, NY. Apr. 26, 2024
-      \item \emph{ACSP}, Toronto, ON. Nov. 5, 2022
+      \spitem \emph{UAA}, New York, NY. Apr. 26, 2024
+      \spitem \emph{ACSP}, Toronto, ON. Nov. 5, 2022
     \end{subpoints2}
 \end{subpoints}
 
