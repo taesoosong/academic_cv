@@ -22,19 +22,21 @@
 \newcommand{\listtabwidth}{2.0cm}
 \TabPositions{\listtabwidth}
 
-% Lists (ONE source of truth for spacing)
+% Lists (unified, readable spacing)
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.25em}
-\setlist[itemize]{leftmargin=1.2em,itemsep=\listitemspace,parsep=0pt,topsep=0pt,partopsep=0pt}
+% For label+content rows (Education, Grants, etc.)
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
   itemsep=\listitemspace,parsep=0pt,topsep=0pt,partopsep=0pt,font=\normalfont}
-
-% Dotless hanging sublists (two depths)
-\newenvironment{subpoints}{%
-  \begin{itemize}[label={},leftmargin=1.4em]}{\end{itemize}}
-\newenvironment{subpoints2}{%
-  \begin{itemize}[label={},leftmargin=2.4em]}{\end{itemize}}
+% Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
+\newlist{subpoints}{itemize}{1}
+\setlist[subpoints]{label={},leftmargin=1.6em,
+  itemsep=.45\baselineskip,parsep=0pt,topsep=0pt,partopsep=0pt}
+% Dotless second-level details (courses; venues/dates)
+\newlist{subpoints2}{itemize}{1}
+\setlist[subpoints2]{label={},leftmargin=2.6em,
+  itemsep=.18\baselineskip,parsep=0pt,topsep=0pt,partopsep=0pt}
 
 % Helpers
 \newcommand{\money}[1]{(\$#1)}
@@ -50,17 +52,16 @@
   pdfsubject={CV}
 }
 
-% Headings (knobs for spacing; thin rule tight to title)
+% Headings (spacing knobs; tight rule under title)
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
-\newcommand{\beforesectionskip}{1.15\baselineskip}  % space before title
-\newcommand{\aftersectionskip}{0pt}                  % space after title
-\newcommand{\ruleaboveskip}{-0.20\baselineskip}      % title→rule gap (negative = tighter)
+\newcommand{\beforesectionskip}{1.25\baselineskip}  % more space before title
+\newcommand{\aftersectionskip}{0pt}                  % none after title
+\newcommand{\ruleaboveskip}{-0.28\baselineskip}      % tighter title→rule
 \newcommand{\SectionRule}{\vspace{\ruleaboveskip}\noindent\rule{\linewidth}{0.5pt}}
 \titleformat{\section}{\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}{}{0pt}{\MakeUppercase}[\SectionRule]
 \titlespacing{\section}{0pt}{\beforesectionskip}{\aftersectionskip}
 \titleformat{\subsection}{\sffamily\bfseries\fontsize{11}{13}\selectfont}{}{0pt}{}
-\titleformat*{\subsection}{\sffamily\bfseries\fontsize{11}{13}\selectfont}
 \titlespacing{\subsection}{0pt}{0.65\baselineskip}{0.18\baselineskip}
 
 % Footer: page X/Y
@@ -97,19 +98,19 @@ University of California, Berkeley
 \section{Education}
 \begin{tablist}
   \item[Ph.D.] \tab{}\textbf{City and Regional Planning, University of California, Berkeley}, 2026 expected
-    \begin{subpoints}
+    \begin{subpoints2}
       \item Designated Emphasis in Global Metropolitan Studies
       \item Dissertation: Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance
       \item Committee: Carolina Reid, Karen Chapple co chairs, Daniel Chatman, Irene Bloemraad
       \item Russell Sage Foundation Dissertation Research Grant, Awardee 2025
-    \end{subpoints}
+    \end{subpoints2}
 
   \item[M.S.] \tab{}\textbf{Urban Planning and Engineering, Yonsei University}, 2019
 
   \item[B.A.] \tab{}\textbf{Economics, Yonsei University}, 2017
-    \begin{subpoints}
+    \begin{subpoints2}
       \item Graduated with the Highest Honors valedictorian
-    \end{subpoints}
+    \end{subpoints2}
 \end{tablist}
 
 % ===== Research Areas =====
