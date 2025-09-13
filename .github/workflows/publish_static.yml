@@ -36,8 +36,8 @@ jobs:
       - name: Upload PDF file
         uses: actions/upload-artifact@v4  # Ensure it's v4 for uploading artifacts
         with:
-          name: song-taesoo-cv-pdf
-          path: song_taesoo_cv.pdf
+          name: CV_SONG_Taesoo
+          path: CV_SONG_Taesoo.pdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3  # Updated to v3
         with:
