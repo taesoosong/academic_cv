@@ -22,6 +22,8 @@
 \newcommand{\listtabwidth}{2.0cm}
 \TabPositions{\listtabwidth}
 
+\usepackage{needspace}
+
 % --- Lists (clear separation for top-level items) ---
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.30em}
@@ -32,22 +34,26 @@
   itemsep=\dimexpr0.40\baselineskip\relax, parsep=0pt, topsep=0pt, partopsep=0pt,
   font=\normalfont}
 
-% Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
-\newlist{subpoints}{itemize}{1}
-\setlist[subpoints]{label={}, leftmargin=1.7em,
+% For 1st-level dotless subpoints
+\setlist[subpoints]{%
+  label={}, leftmargin=1.7em,
   topsep=\dimexpr0.22\baselineskip\relax,
   itemsep=\dimexpr0.42\baselineskip\relax,
   parsep=0pt, partopsep=0pt,
-  after=\vspace{\dimexpr0.14\baselineskip\relax}}
+  before=\let\orig@item\item\def\item{\needspace{4\baselineskip}\orig@item},
+  after=\vspace{\dimexpr0.14\baselineskip\relax}
+}
 
-% Dotless second-level details (courses; venues/dates)
-\newlist{subpoints2}{itemize}{1}
-\setlist[subpoints2]{label={}, leftmargin=2.7em,
+% For 2nd-level dotless subpoints
+\setlist[subpoints2]{%
+  label={}, leftmargin=2.7em,
   topsep=\dimexpr0.18\baselineskip\relax,
   itemsep=\dimexpr0.28\baselineskip\relax,
   parsep=0pt, partopsep=0pt,
-  after=\vspace{0pt}}
-  
+  before=\let\orig@item\item\def\item{\needspace{3\baselineskip}\orig@item},
+  after=\relax
+}
+
 % --- Helpers ---
 \newcommand{\money}[1]{(\$#1)}
 \newcommand{\term}[1]{(#1)}
@@ -116,7 +122,7 @@ University of California, Berkeley
     \begin{subpoints2}
       \item Dissertation: Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance
       \item Committee: Carolina Reid; Karen Chapple (co-chairs); Daniel Chatman; Irene Bloemraad
-      \item Russell Sage Foundation Dissertation Research Grant \term{2025}%
+      \item Russell Sage Foundation Dissertation Research Grant, Awardee \term{2025}%
     \end{subpoints2}
 
   \item[M.S.] \tab{}\textbf{Urban Planning and Engineering, Yonsei University}, 2019
@@ -159,7 +165,7 @@ Asian American Studies & Urban Data Analytics
   \item[2020] \tab{}Oh, E., Kim, M., Choi, B., \textbf{Song, T.}, Yoon, J., Jung, H., \& Hwang, M. \emph{A Research Report on the Development Strategies for Seoul Historic Downtown Specialized Industries.} Seoul Metropolitan Government (in Korean).
 \end{tablist}
 
-\subsection{Public Writing}
+\subsection{Public Scholarship}
 \begin{tablist}
   \item[2025] \tab{}\textbf{Song, T.} \href{https://medium.com/@dlab-berkeley/why-data-disaggregation-matters-exploring-the-diversity-of-asian-american-economic-outcomes-using-8b96e5dcc9a4}{Why Data Disaggregation Matters: Exploring the Diversity of Asian American Economic Outcomes Using Public Use Microdata Sample Data.} \emph{D-Lab Blog Posts.} UC Berkeley D-Lab.
   \item[2024] \tab{}\textbf{Song, T.} \href{https://medium.com/@dlab-berkeley/exploring-rental-affordability-in-the-san-francisco-bay-area-neighborhoods-with-r-c4383f7553e7}{Exploring Rental Affordability in the San Francisco Bay Area Neighborhoods with R.} \emph{D-Lab Blog Posts.} UC Berkeley D-Lab.
@@ -250,39 +256,39 @@ ACSP: Association of Collegiate Schools of Planning; APPAM: Association for Publ
 \subsection{Conference Papers Presented}
 {\footnotesize\emph{* Presented by other authors.}}\par\vspace{.35\baselineskip}
 \begin{subpoints}
-  \item \textbf{Song, T.} How Does Suburban Housing Supply Shape Asian American Segregation
+  \item \textbf{Song, T.} How Does Suburban Housing Supply Shape Asian American Segregation?
     \begin{subpoints2}
       \item \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}
       \item \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}
     \end{subpoints2}
 
-  \item Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City
+  \item Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City.
     \begin{subpoints2}
       \item \emph{UAA}, Vancouver, BC. Apr. 17, 2025*
     \end{subpoints2}
 
-  \item Reid, C., \& \textbf{Song, T.} Does Apartment Flipping Fuel Residential Displacement? Insights from Assessor and Mobility Data
+  \item Reid, C., \& \textbf{Song, T.} Does Apartment Flipping Fuel Residential Displacement? Insights from Assessor and Mobility Data.
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024
     \end{subpoints2}
 
-  \item \textbf{Song, T.} Reassessing the Heterogeneity of Asian American Housing Outcomes, 2000–2019
+  \item \textbf{Song, T.} Reassessing the Heterogeneity of Asian American Housing Outcomes, 2000–2019.
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 19, 2024
     \end{subpoints2}
 
-  \item Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K. Measuring Residential Mobility Using Consumer Reference Datasets
+  \item Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K. Measuring Residential Mobility Using Consumer Reference Datasets.
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024*
       \item \emph{UAA}, New York, NY. Apr. 26, 2024*
     \end{subpoints2}
 
-  \item \textbf{Song, T.} Affordability for Whom? The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets
+  \item \textbf{Song, T.} Affordability for Whom? The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets.
     \begin{subpoints2}
       \item \emph{ACSP}, Chicago, IL. Oct. 21, 2023
     \end{subpoints2}
 
-  \item \textbf{Song, T.}, \& Chapple, K. Does Gentrification Constrain Housing Markets for Low-Income Households? Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas
+  \item \textbf{Song, T.}, \& Chapple, K. Does Gentrification Constrain Housing Markets for Low-Income Households? Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas.
     \begin{subpoints2}
       \item \emph{UAA}, New York, NY. Apr. 26, 2024
       \item \emph{ACSP}, Toronto, ON. Nov. 5, 2022
@@ -327,7 +333,7 @@ Urban Affairs Association
 
 % ===== Footer =====
 \vspace{1.0\baselineskip}
-{\footnotesize References Available Upon Request}\par\vspace{.5\baselineskip}
+{\footnotesize References Available Upon Request.}\par\vspace{.2\baselineskip}
 {\footnotesize Last Updated: September 2025}
 
 \end{document}
