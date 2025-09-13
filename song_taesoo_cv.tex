@@ -33,6 +33,8 @@
   topsep=0.3\baselineskip,partopsep=0pt,itemsep=\listitemspace,parsep=\listitemspace,
   font=\normalfont\itshape}
 
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} % put in preamble
+
 % Headings
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
@@ -207,7 +209,8 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
   \item[2025] \tab{}Housing Policy, Neighborhood Change, and Residential Mobility: Novel Methodologies and Insights. \emph{UAA}, Vancouver, BC. Apr. 17
 \end{tablist}
 
-\subsection{Conference Papers Presented\footnote{* Presented by other authors.}}
+\subsection{Conference Papers Presented}
+{\footnotesize\emph{* Presented by other authors.}}
 \begin{itemize}
   \item How Does Suburban Housing Supply Shape Asian American Segregation \textbf{Song, T.}
     \begin{itemize}
