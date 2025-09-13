@@ -26,22 +26,28 @@
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.30em}
 
-% Label+content rows (Education, Grants, etc.)
+% Label+content rows
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
-  itemsep={0.38\baselineskip}, parsep=0pt, topsep=0pt, partopsep=0pt, font=\normalfont}
+  itemsep=\dimexpr0.38\baselineskip\relax, parsep=0pt, topsep=0pt, partopsep=0pt,
+  font=\normalfont}
 
-% One-indent block
-\newlist{subpoints1}{itemize}{1}
-\setlist[subpoints1]{label={}, leftmargin=1.7em,
-  topsep={0.22\baselineskip}, itemsep={0.40\baselineskip},
-  after=\vspace{0.14\baselineskip}, parsep=0pt, partopsep=0pt}
+% One-indent (e.g., Designated Emphasis; Teaching departments; Paper titles)
+\newlist{subpoints}{itemize}{1}
+\setlist[subpoints]{label={}, leftmargin=1.7em,
+  topsep=\dimexpr0.22\baselineskip\relax,
+  itemsep=\dimexpr0.40\baselineskip\relax,
+  parsep=0pt, partopsep=0pt,
+  after=\vspace{\dimexpr0.14\baselineskip\relax}}
 
-% Two-indent block
+% Two-indent (e.g., courses; venues/dates)
 \newlist{subpoints2}{itemize}{1}
 \setlist[subpoints2]{label={}, leftmargin=2.7em,
-  topsep={0.16\baselineskip}, itemsep={0.26\baselineskip},
-  after=0pt, parsep=0pt, partopsep=0pt}
+  topsep=\dimexpr0.16\baselineskip\relax,
+  itemsep=\dimexpr0.26\baselineskip\relax,
+  parsep=0pt, partopsep=0pt,
+  after=0pt}
+
 
 % Helpers
 \newcommand{\money}[1]{(\$#1)}
