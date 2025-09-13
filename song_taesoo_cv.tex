@@ -1,59 +1,58 @@
 \documentclass[11pt,letterpaper]{article}
 
-% Encoding & typography
+% --- Encoding & typography ---
 \usepackage[T1]{fontenc}
 \usepackage[USenglish]{babel}
 \usepackage{microtype}
 
-% Fonts
+% --- Fonts ---
 \usepackage{ebgaramond}   % body serif
 \usepackage{tgheros}      % sans headings
 
-% Layout
+% --- Layout ---
 \usepackage[margin=0.7in]{geometry}
 \usepackage{setspace}
 \setstretch{1.00}
 \setlength\parindent{0pt}
 \setlength{\emergencystretch}{2em}
 
-% Tabs & tables
+% --- Tabs & tables ---
 \usepackage{tabto}
 \usepackage{tabularx}
 \newcommand{\listtabwidth}{2.0cm}
 \TabPositions{\listtabwidth}
 
-% Lists (clear separation for top-level items)
+% --- Lists (clear separation for top-level items) ---
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.30em}
 
-% Label+content rows
+% Label+content rows (Education, Grants, etc.)
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
-  itemsep=\dimexpr0.38\baselineskip\relax, parsep=0pt, topsep=0pt, partopsep=0pt,
+  itemsep=\dimexpr0.40\baselineskip\relax, parsep=0pt, topsep=0pt, partopsep=0pt,
   font=\normalfont}
 
-% One-indent (e.g., Designated Emphasis; Teaching departments; Paper titles)
+% Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
 \newlist{subpoints}{itemize}{1}
 \setlist[subpoints]{label={}, leftmargin=1.7em,
   topsep=\dimexpr0.22\baselineskip\relax,
-  itemsep=\dimexpr0.40\baselineskip\relax,
+  itemsep=\dimexpr0.42\baselineskip\relax,
   parsep=0pt, partopsep=0pt,
   after=\vspace{\dimexpr0.14\baselineskip\relax}}
 
-% Two-indent (e.g., courses; venues/dates)
+% Dotless second-level details (courses; venues/dates)
 \newlist{subpoints2}{itemize}{1}
 \setlist[subpoints2]{label={}, leftmargin=2.7em,
-  topsep=\dimexpr0.16\baselineskip\relax,
-  itemsep=\dimexpr0.26\baselineskip\relax,
+  topsep=\dimexpr0.18\baselineskip\relax,
+  itemsep=\dimexpr0.28\baselineskip\relax,
   parsep=0pt, partopsep=0pt,
   after=0pt}
 
-
-% Helpers
+% --- Helpers ---
 \newcommand{\money}[1]{(\$#1)}
 \newcommand{\term}[1]{(#1)}
 
-% Links
+% --- Links (muted) ---
 \usepackage{xcolor}
 \definecolor{linktone}{HTML}{1B3A57}
 \usepackage[colorlinks=true,linkcolor=linktone,urlcolor=linktone,citecolor=linktone]{hyperref}
@@ -63,19 +62,19 @@
   pdfsubject={CV}
 }
 
-% Headings (more before; zero after; tight rule)
+% --- Headings (more space before; zero after; tight rule) ---
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
 \newcommand{\beforesectionskip}{1.25\baselineskip}
 \newcommand{\aftersectionskip}{0pt}
-\newcommand{\ruleaboveskip}{-0.28\baselineskip}
+\newcommand{\ruleaboveskip}{-0.28\baselineskip} % pulls rule up towards title
 \newcommand{\SectionRule}{\vspace{\ruleaboveskip}\noindent\rule{\linewidth}{0.5pt}}
 \titleformat{\section}{\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}{}{0pt}{\MakeUppercase}[\SectionRule]
 \titlespacing{\section}{0pt}{\beforesectionskip}{\aftersectionskip}
 \titleformat{\subsection}{\sffamily\bfseries\fontsize{11}{13}\selectfont}{}{0pt}{}
 \titlespacing{\subsection}{0pt}{0.65\baselineskip}{0.18\baselineskip}
 
-% Footer: page X/Y
+% --- Footer: page X/Y ---
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
@@ -83,7 +82,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \cfoot{\thepage/\pageref{LastPage}}
 
-% Name banner
+% --- Name banner ---
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge #1}}
 
 \begin{document}
@@ -107,7 +106,7 @@ University of California, Berkeley
 
 % ===== Education =====
 \section{Education}
-\begin{tablist}[itemsep=.45\baselineskip] % more space between degrees
+\begin{tablist}
   \item[Ph.D.] \tab{}\textbf{City and Regional Planning, University of California, Berkeley}, 2026 (Expected)
     % one-indent item
     \begin{subpoints}
@@ -116,16 +115,16 @@ University of California, Berkeley
     % two-indent items
     \begin{subpoints2}
       \item Dissertation: Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance
-      \item Committee: Carolina Reid, Karen Chapple co chairs, Daniel Chatman, Irene Bloemraad
-      \item Russell Sage Foundation Dissertation Research Grant, Awardee \term{2025}
+      \item Committee: Carolina Reid; Karen Chapple (co-chairs); Daniel Chatman; Irene Bloemraad
+      \item Russell Sage Foundation Dissertation Research Grant \term{2025}
     \end{subpoints2}
 
   \item[M.S.] \tab{}\textbf{Urban Planning and Engineering, Yonsei University}, 2019
 
   \item[B.A.] \tab{}\textbf{Economics, Yonsei University}, 2017
-    \begin{subpoints1}
+    \begin{subpoints}
       \item Graduated with the Highest Honors \term{Valedictorian}
-    \end{subpoints1}
+    \end{subpoints}
 \end{tablist}
 
 % ===== Research Areas =====
@@ -141,39 +140,39 @@ Asian American Studies & Urban Data Analytics
 
 \subsection{Peer-reviewed Journal Articles}
 \begin{tablist}
-  \item[2025] \tab{}Chapple, K. \& \textbf{Song, T.} \href{https://doi.org/10.1080/01944363.2024.2319293}{Can New Housing Supply Mitigate Displacement and Exclusion Evidence from Los Angeles and San Francisco.} \emph{Journal of the American Planning Association} 91(1) 1–15.
-  \item[2024] \tab{}Ramiller, A., \textbf{Song, T.}, Parker, M. \& Chapple, K. \href{https://www.jstor.org/stable/48799257}{Residential Mobility and Big Data: Assessing the Validity of Consumer Reference Datasets.} \emph{Cityscape} 26(3) 227–239.
-  \item[2024] \tab{}\textbf{Song, T.} \& Chapple, K. \href{https://doi.org/10.1177/00420980241244699}{Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas.} \emph{Urban Studies} 61(13) 2603–2622.
-  \item[2022] \tab{}Lee, S., \textbf{Song, T.} \& Lim, U. \href{https://doi.org/10.1016/j.cities.2022.103768}{How are Happy and Unhappy People Differently Affected by Their Local Environments The Heterogeneous Relationship Between Happiness and Local Environments in Seoul, Korea.} \emph{Cities} 127 103768.
-  \item[2021] \tab{}Lee, S., \textbf{Song, T.} \& Lim, U. \href{https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11025769}{Wage Premium of Korean Chinese Immigrant Workers in the Seoul Metropolitan Labor Market.} \emph{GRI Review} 23(3) 191–214 (in Korean).
-  \item[2020] \tab{}\textbf{Song, T.} \& Lim, U. \href{https://www.koreascience.or.kr/article/JAKO202030161655441.page}{The Multilevel Effects of Regional Deprivation on Perceived Upward Social Mobility of Residents.} \emph{Journal of the Korean Regional Science Association} 36(3) 1–14 (in Korean).
+  \item[2025] \tab{}Chapple, K., \& \textbf{Song, T.} \href{https://doi.org/10.1080/01944363.2024.2319293}{Can New Housing Supply Mitigate Displacement and Exclusion? Evidence from Los Angeles and San Francisco.} \emph{Journal of the American Planning Association} 91(1), 1–15.
+  \item[2024] \tab{}Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K. \href{https://www.jstor.org/stable/48799257}{Residential Mobility and Big Data: Assessing the Validity of Consumer Reference Datasets.} \emph{Cityscape} 26(3), 227–239.
+  \item[2024] \tab{}\textbf{Song, T.}, \& Chapple, K. \href{https://doi.org/10.1177/00420980241244699}{Does Gentrification Constrain Housing Markets for Low-income Households? Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas.} \emph{Urban Studies} 61(13), 2603–2622.
+  \item[2022] \tab{}Lee, S., \textbf{Song, T.}, \& Lim, U. \href{https://doi.org/10.1016/j.cities.2022.103768}{How Are Happy and Unhappy People Differently Affected by Their Local Environments? The Heterogeneous Relationship Between Happiness and Local Environments in Seoul, Korea.} \emph{Cities} 127, 103768.
+  \item[2021] \tab{}Lee, S., \textbf{Song, T.}, \& Lim, U. \href{https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11025769}{Wage Premium of Korean Chinese Immigrant Workers in the Seoul Metropolitan Labor Market.} \emph{GRI Review} 23(3), 191–214 (in Korean).
+  \item[2020] \tab{}\textbf{Song, T.}, \& Lim, U. \href{https://www.koreascience.or.kr/article/JAKO202030161655441.page}{The Multilevel Effects of Regional Deprivation on Perceived Upward Social Mobility of Residents.} \emph{Journal of the Korean Regional Science Association} 36(3), 1–14 (in Korean).
 \end{tablist}
 
 \subsection{Book Chapter}
 \begin{tablist}
-  \item[2020] \tab{}\textbf{Song, T.} Queering Seoul through the Lens of Urban Planning. In Seoul Queer Collective Ed., \emph{\href{http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791197096501}{Jongno 3 ga Taja, Taja Jongno 3 ga Others, Jongno 3 ga}} pp. 53–81. Seoul: Seoul Queer Collective Press (in Korean).
+  \item[2020] \tab{}\textbf{Song, T.} Queering Seoul through the Lens of Urban Planning. In Seoul Queer Collective (Ed.), \emph{\href{http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791197096501}{Jongno 3-ga Taja, Taja Jongno 3-ga: Others, Jongno 3-ga}} (pp. 53–81). Seoul: Seoul Queer Collective Press (in Korean).
 \end{tablist}
 
 \subsection{Policy Reports}
 \begin{tablist}
-  \item[2021] \tab{}Oh, E., Kim, S. \& \textbf{Song, T.} \emph{\href{https://www.si.re.kr/bbs/view.do?key=2024100039&pstSn=2111190001}{Current Changes and Challenges of Seoul Webtoon Industry and Policy Agendas.}} The Seoul Institute (in Korean).
-  \item[2020] \tab{}Oh, E., Kim, M., Choi, B., \textbf{Song, T.}, Yoon, J., Jung, H. \& Hwang, M. \emph{A Research Report on the Development Strategies for Seoul Historic Downtown Specialized Industries.} Seoul Metropolitan Government (in Korean).
+  \item[2021] \tab{}Oh, E., Kim, S., \& \textbf{Song, T.} \emph{\href{https://www.si.re.kr/bbs/view.do?key=2024100039&pstSn=2111190001}{Current Changes and Challenges of Seoul Webtoon Industry and Policy Agendas.}} The Seoul Institute (in Korean).
+  \item[2020] \tab{}Oh, E., Kim, M., Choi, B., \textbf{Song, T.}, Yoon, J., Jung, H., \& Hwang, M. \emph{A Research Report on the Development Strategies for Seoul Historic Downtown Specialized Industries.} Seoul Metropolitan Government (in Korean).
 \end{tablist}
 
 \subsection{Public Writing}
 \begin{tablist}
-  \item[2025] \tab{}\textbf{Song, T.} \href{https://medium.com/@dlab-berkeley/why-data-disaggregation-matters-exploring-the-diversity-of-asian-american-economic-outcomes-using-8b96e5dcc9a4}{Why Data Disaggregation Matters: Exploring the Diversity of Asian American Economic Outcomes Using Public Use Microdata Sample Data.} \emph{D Lab Blog Posts.} UC Berkeley D Lab.
-  \item[2024] \tab{}\textbf{Song, T.} \href{https://medium.com/@dlab-berkeley/exploring-rental-affordability-in-the-san-francisco-bay-area-neighborhoods-with-r-c4383f7553e7}{Exploring Rental Affordability in the San Francisco Bay Area Neighborhoods with R.} \emph{D Lab Blog Posts.} UC Berkeley D Lab.
-  \item[2024] \tab{}\textbf{Song, T.} \href{https://www.kahps.org/data/prbx/pdf_44_7}{Recent Trends in American Residential Mobility Research and Consumer Big Data.} \emph{Propbix Magazine} 18 31–37. Institute of Proptech Big Data (in Korean).
+  \item[2025] \tab{}\textbf{Song, T.} \href{https://medium.com/@dlab-berkeley/why-data-disaggregation-matters-exploring-the-diversity-of-asian-american-economic-outcomes-using-8b96e5dcc9a4}{Why Data Disaggregation Matters: Exploring the Diversity of Asian American Economic Outcomes Using Public Use Microdata Sample Data.} \emph{D-Lab Blog Posts.} UC Berkeley D-Lab.
+  \item[2024] \tab{}\textbf{Song, T.} \href{https://medium.com/@dlab-berkeley/exploring-rental-affordability-in-the-san-francisco-bay-area-neighborhoods-with-r-c4383f7553e7}{Exploring Rental Affordability in the San Francisco Bay Area Neighborhoods with R.} \emph{D-Lab Blog Posts.} UC Berkeley D-Lab.
+  \item[2024] \tab{}\textbf{Song, T.} \href{https://www.kahps.org/data/prbx/pdf_44_7}{Recent Trends in American Residential Mobility Research and Consumer Big Data.} \emph{Propbix Magazine} 18, 31–37. Institute of Proptech Big Data (in Korean).
 \end{tablist}
 
 % ===== Work in Progress =====
 \section{Work in Progress}
 \begin{subpoints}
-  \item \textbf{Song, T.} Anti immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
-  \item Reid, C. \& \textbf{Song, T.} The Implications of Naturally Occurring Affordable Housing NOAH Sales for Residential Mobility. Invited to revise and resubmit at \emph{Journal of the American Planning Association}.
-  \item Davis, J., \textbf{Song, T.} \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low Income Households Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
-  \item \textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership 2000–2019. Under review at \emph{Housing Studies}.
+  \item \textbf{Song, T.} Anti-immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
+  \item Reid, C., \& \textbf{Song, T.} The Implications of Naturally Occurring Affordable Housing (NOAH) Sales for Residential Mobility. Invited to revise and resubmit at \emph{Journal of the American Planning Association}.
+  \item Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
+  \item \textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership, 2000–2019. Under review at \emph{Housing Studies}.
 \end{subpoints}
 
 % ===== Grants and Fellowship =====
@@ -189,9 +188,9 @@ Asian American Studies & Urban Data Analytics
 \subsection{Internal}
 \begin{tablist}
   \item[2025] \tab{}Michael B. Teitz Fellowship, Department of City and Regional Planning, UC Berkeley \money{4,500}
-  \item[2025] \tab{}Senior Data Science and AI Fellowship, D Lab, UC Berkeley \money{4,200}
+  \item[2025] \tab{}Senior Data Science and AI Fellowship, D-Lab, UC Berkeley \money{4,200}
   \item[2025] \tab{}Summer Research Funding, Global Metropolitan Studies, UC Berkeley \money{5,000}
-  \item[2024] \tab{}Data Science and AI Fellowship, D Lab, UC Berkeley \money{4,800}
+  \item[2024] \tab{}Data Science and AI Fellowship, D-Lab, UC Berkeley \money{4,800}
   \item[2024–2026] \tab{}Asian American Research Center Graduate Fellowship, Institute for the Study of Societal Issues, UC Berkeley \money{16,000}
   \item[2022] \tab{}Edward E. Hildebrand Research Fellowship, Canadian Studies Program, UC Berkeley \money{3,900}
   \item[2022] \tab{}Summer Research Funding, Global Metropolitan Studies, UC Berkeley \money{4,200}
@@ -216,11 +215,11 @@ Asian American Studies & Urban Data Analytics
       \item U.S. Housing, Planning, and Policy \term{2024Su}
       \item Introduction to Urban Data Analytics \term{2023Su}
     \end{subpoints2}
-  \item \textbf{D Lab} — Workshop (Assistant) Instructor
+  \item \textbf{D-Lab} — Workshop (Assistant) Instructor
     \begin{subpoints2}
-      \item \textbf{R:} Fundamentals \term{2024F, 2025F}; Data Wrangling \term{2025F}; Data Visualization \term{2025S}; Geospatial Fundamentals \term{2024F, 2025F}; Census Fundamentals \term{2025S}; SQL Fundamentals \term{2025S}; AI assisted Coding \term{2025F}
+      \item \textbf{R:} Fundamentals \term{2024F, 2025F}; Data Wrangling \term{2025F}; Data Visualization \term{2025S}; Geospatial Fundamentals \term{2024F, 2025F}; Census Fundamentals \term{2025S}; SQL Fundamentals \term{2025S}; AI-assisted Coding \term{2025F}
       \item \textbf{Python:} Geospatial Fundamentals \term{2025S}; Machine Learning Fundamentals \term{2025S}
-      \item \textbf{Excel:} Data Analysis Introduction \term{2025S}; Charts Pivot Tables and VLOOKUP \term{2025S}
+      \item \textbf{Excel:} Data Analysis Introduction \term{2025S}; Charts, Pivot Tables, and VLOOKUP \term{2025S}
     \end{subpoints2}
 \end{subpoints}
 
@@ -240,7 +239,7 @@ Asian American Studies & Urban Data Analytics
 
 % ===== Conferences =====
 \section{Conferences}
-ACSP Association of Collegiate Schools of Planning, APPAM Association for Public Policy Analysis and Management, UAA Urban Affairs Association
+ACSP: Association of Collegiate Schools of Planning; APPAM: Association for Public Policy Analysis and Management; UAA: Urban Affairs Association
 
 \subsection{Conference Panels Organized}
 \begin{tablist}
@@ -250,39 +249,39 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
 \subsection{Conference Papers Presented}
 {\footnotesize\emph{* Presented by other authors.}}\par\vspace{.35\baselineskip}
 \begin{subpoints}
-  \item \textbf{Song, T.}. How Does Suburban Housing Supply Shape Asian American Segregation
+  \item \textbf{Song, T.} How Does Suburban Housing Supply Shape Asian American Segregation
     \begin{subpoints2}
       \item \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}
       \item \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}
     \end{subpoints2}
 
-  \item Davis, J., \textbf{Song, T.}, \& Chapple, K.. How Does Upzoning Impact Residential Mobility Among Low Income Households Evidence from New York City
+  \item Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City
     \begin{subpoints2}
       \item \emph{UAA}, Vancouver, BC. Apr. 17, 2025*
     \end{subpoints2}
 
-  \item Reid, C., \& \textbf{Song, T.}. Does Apartment Flipping Fuel Residential Displacement Insights from Assessor and Mobility Data
+  \item Reid, C., \& \textbf{Song, T.} Does Apartment Flipping Fuel Residential Displacement? Insights from Assessor and Mobility Data
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024
     \end{subpoints2}
 
-  \item \textbf{Song, T.}. Reassessing the Heterogeneity of Asian American Housing Outcomes 2000–2019
+  \item \textbf{Song, T.} Reassessing the Heterogeneity of Asian American Housing Outcomes, 2000–2019
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 19, 2024
     \end{subpoints2}
 
-  \item Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K.. Measuring Residential Mobility Using Consumer Reference Datasets
+  \item Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K. Measuring Residential Mobility Using Consumer Reference Datasets
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024*
       \item \emph{UAA}, New York, NY. Apr. 26, 2024*
     \end{subpoints2}
 
-  \item \textbf{Song, T.}. Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets
+  \item \textbf{Song, T.} Affordability for Whom? The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets
     \begin{subpoints2}
       \item \emph{ACSP}, Chicago, IL. Oct. 21, 2023
     \end{subpoints2}
 
-  \item \textbf{Song, T.} \& Chapple, K.. Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas
+  \item \textbf{Song, T.}, \& Chapple, K. Does Gentrification Constrain Housing Markets for Low-Income Households? Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas
     \begin{subpoints2}
       \item \emph{UAA}, New York, NY. Apr. 26, 2024
       \item \emph{ACSP}, Toronto, ON. Nov. 5, 2022
@@ -303,7 +302,7 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
 \subsection{University of California, Berkeley}
 \begin{tablist}
   \item[2024–2025] \tab{}City and Regional Planning PhD Admissions Committee
-  \item[2023] \tab{}Faculty Search Doctoral Student Lead land and housing economics
+  \item[2023] \tab{}Faculty Search Doctoral Student Lead (land and housing economics)
 \end{tablist}
 
 \subsection{Reviewer}
