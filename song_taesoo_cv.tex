@@ -14,43 +14,31 @@
 \usepackage{setspace}
 \setstretch{1.00}
 \setlength\parindent{0pt}
+\setlength{\emergencystretch}{2em}
 
-% Lists & tabbed descriptions
-\usepackage{enumitem}
-\newcommand{\listitemspace}{0.25em}
-\setlist[itemize]{leftmargin=1em,itemsep=\listitemspace,parsep=\listitemspace,topsep=0pt,partopsep=0pt}
-
+% Tabs & tables
 \usepackage{tabto}
 \usepackage{tabularx}
 \newcommand{\listtabwidth}{2.0cm}
 \TabPositions{\listtabwidth}
+
+% Lists (ONE source of truth for spacing)
+\usepackage{enumitem}
+\newcommand{\listitemspace}{0.25em}
+\setlist[itemize]{leftmargin=1.2em,itemsep=\listitemspace,parsep=0pt,topsep=0pt,partopsep=0pt}
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
-  topsep=0.3\baselineskip,partopsep=0pt,itemsep=\listitemspace,parsep=\listitemspace,
-  font=\normalfont}
+  itemsep=\listitemspace,parsep=0pt,topsep=0pt,partopsep=0pt,font=\normalfont}
 
-% Gentle overfull handling
-\setlength{\emergencystretch}{2em}
+% Dotless hanging sublists (two depths)
+\newenvironment{subpoints}{%
+  \begin{itemize}[label={},leftmargin=1.4em]}{\end{itemize}}
+\newenvironment{subpoints2}{%
+  \begin{itemize}[label={},leftmargin=2.4em]}{\end{itemize}}
 
 % Helpers
 \newcommand{\money}[1]{(\$#1)}
 \newcommand{\term}[1]{(#1)}
-
-% Headings (more space before title; tighter rule gap)
-\usepackage{titlesec}
-\SetTracking{encoding=*, family=\sfdefault}{30}
-\newcommand{\SectionRule}{\vspace{-0.10\baselineskip}\noindent\rule{\linewidth}{0.5pt}}
-\titleformat{\section}
-  {\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}
-  {}{0pt}{\MakeUppercase}
-  [\SectionRule]
-\titlespacing{\section}{0pt}{1.10\baselineskip}{0pt}
-\titleformat{\subsection}
-  {\sffamily\bfseries\fontsize{11}{13}\selectfont}
-  {}{0pt}{}
-\titleformat*{\subsection}{\sffamily\bfseries\fontsize{11}{13}\selectfont} % starred form same style
-\titlespacing{\subsection}{0pt}{0.65\baselineskip}{0.18\baselineskip}
-\titlespacing*{\subsection}{0pt}{0.65\baselineskip}{0.18\baselineskip}
 
 % Links: muted color
 \usepackage{xcolor}
@@ -62,7 +50,20 @@
   pdfsubject={CV}
 }
 
-% Page numbers X/Y
+% Headings (knobs for spacing; thin rule tight to title)
+\usepackage{titlesec}
+\SetTracking{encoding=*, family=\sfdefault}{30}
+\newcommand{\beforesectionskip}{1.15\baselineskip}  % space before title
+\newcommand{\aftersectionskip}{0pt}                  % space after title
+\newcommand{\ruleaboveskip}{-0.20\baselineskip}      % title→rule gap (negative = tighter)
+\newcommand{\SectionRule}{\vspace{\ruleaboveskip}\noindent\rule{\linewidth}{0.5pt}}
+\titleformat{\section}{\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}{}{0pt}{\MakeUppercase}[\SectionRule]
+\titlespacing{\section}{0pt}{\beforesectionskip}{\aftersectionskip}
+\titleformat{\subsection}{\sffamily\bfseries\fontsize{11}{13}\selectfont}{}{0pt}{}
+\titleformat*{\subsection}{\sffamily\bfseries\fontsize{11}{13}\selectfont}
+\titlespacing{\subsection}{0pt}{0.65\baselineskip}{0.18\baselineskip}
+
+% Footer: page X/Y
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
@@ -72,14 +73,6 @@
 
 % Name banner
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge #1}}
-
-% Approach A: dotless hanging lines (two depths)
-\newenvironment{subpoints}{%
-  \begin{itemize}[label={},leftmargin=1.4em,itemsep=0.15\baselineskip,parsep=0pt,topsep=0pt]}%
-  {\end{itemize}}
-\newenvironment{subpoints2}{%
-  \begin{itemize}[label={},leftmargin=2.4em,itemsep=0.12\baselineskip,parsep=0pt,topsep=0pt]}%
-  {\end{itemize}}
 
 \begin{document}
 \raggedright
@@ -202,14 +195,12 @@ Asian American Studies & Urban Data Analytics
 
 \subsection*{University of California, Berkeley}
 \begin{subpoints}
-  \item City and Regional Planning — Instructor of Record
+  \item \textbf{City and Regional Planning} — Instructor of Record
     \begin{subpoints2}
-      \item U.S. Housing, Planning, and Policy \term{2024Su}\\[-0.15em]
-            {\footnotesize Overall effectiveness 6.70/7.00; dept avg 6.27}
-      \item Introduction to Urban Data Analytics \term{2023Su}\\[-0.15em]
-            {\footnotesize Overall effectiveness 6.44/7.00; dept avg 6.29}
+      \item U.S. Housing, Planning, and Policy \term{2024Su}
+      \item Introduction to Urban Data Analytics \term{2023Su}
     \end{subpoints2}
-  \item D Lab — Workshop Instructor and Assistant Instructor
+  \item \textbf{D Lab} — Workshop Instructor and Assistant Instructor
     \begin{subpoints2}
       \item \textbf{R:} Fundamentals \term{2024F, 2025F}; Data Wrangling \term{2025F}; Data Visualization \term{2025S}; Geospatial Fundamentals \term{2024F, 2025F}; Census Fundamentals \term{2025S}; SQL Fundamentals \term{2025S}; AI assisted Coding \term{2025F}
       \item \textbf{Python:} Geospatial Fundamentals \term{2025S}; Machine Learning Fundamentals \term{2025S}
@@ -219,12 +210,12 @@ Asian American Studies & Urban Data Analytics
 
 \subsection*{Yonsei University}
 \begin{subpoints}
-  \item Underwood International College — Teaching Assistant
+  \item \textbf{Underwood International College} — Teaching Assistant
     \begin{subpoints2}
       \item World History Group II \term{2019S}
       \item World History Group I \term{2018F, 2019S}
     \end{subpoints2}
-  \item Urban Planning and Engineering — Teaching Assistant
+  \item \textbf{Urban Planning and Engineering} — Teaching Assistant
     \begin{subpoints2}
       \item Urban and Regional Economics \term{2018S}
       \item National and Regional Planning \term{2017F}
@@ -243,66 +234,44 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
 \subsection{Conference Papers Presented}
 {\footnotesize\emph{* Presented by other authors.}}
 \begin{subpoints}
-  \item How Does Suburban Housing Supply Shape Asian American Segregation \textbf{Song, T.}
+  \item \textbf{Song, T.}. How Does Suburban Housing Supply Shape Asian American Segregation
     \begin{subpoints2}
       \item \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}
       \item \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}
     \end{subpoints2}
 
-  \item How Does Upzoning Impact Residential Mobility Among Low Income Households Evidence from New York City. Davis, J., \textbf{Song, T.} \& Chapple, K.
+  \item Davis, J., \textbf{Song, T.}, \& Chapple, K.. How Does Upzoning Impact Residential Mobility Among Low Income Households Evidence from New York City
     \begin{subpoints2}
       \item \emph{UAA}, Vancouver, BC. Apr. 17, 2025*
     \end{subpoints2}
 
-  \item Does Apartment Flipping Fuel Residential Displacement Insights from Assessor and Mobility Data. Reid, C. \& \textbf{Song, T.}
+  \item Reid, C., \& \textbf{Song, T.}. Does Apartment Flipping Fuel Residential Displacement Insights from Assessor and Mobility Data
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024
     \end{subpoints2}
 
-  \item Reassessing the Heterogeneity of Asian American Housing Outcomes 2000–2019. \textbf{Song, T.}
+  \item \textbf{Song, T.}. Reassessing the Heterogeneity of Asian American Housing Outcomes 2000–2019
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 19, 2024
     \end{subpoints2}
 
-  \item Measuring Residential Mobility Using Consumer Reference Datasets. Ramiller, A., \textbf{Song, T.}, Parker, M. \& Chapple, K.
+  \item Ramiller, A., \textbf{Song, T.}, Parker, M., \& Chapple, K.. Measuring Residential Mobility Using Consumer Reference Datasets
     \begin{subpoints2}
       \item \emph{ACSP}, Seattle, WA. Nov. 18, 2024*
       \item \emph{UAA}, New York, NY. Apr. 26, 2024*
     \end{subpoints2}
 
-  \item Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets. \textbf{Song, T.}
+  \item \textbf{Song, T.}. Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets
     \begin{subpoints2}
       \item \emph{ACSP}, Chicago, IL. Oct. 21, 2023
     \end{subpoints2}
 
-  \item Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas. \textbf{Song, T.} \& Chapple, K.
+  \item \textbf{Song, T.} \& Chapple, K.. Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas
     \begin{subpoints2}
       \item \emph{UAA}, New York, NY. Apr. 26, 2024
       \item \emph{ACSP}, Toronto, ON. Nov. 5, 2022
     \end{subpoints2}
 \end{subpoints}
-
-\subsection{Roundtables}
-\begin{tablist}
-  \item[2025] \tab{}The Promise and Pitfalls of Commercial Microdata for Planning Research. Ramiller, A., Chapple, K., Greenlee, A. \& \textbf{Song, T.}, Xu, W. \emph{ACSP}, Minneapolis, MN. Oct. 24 \term{scheduled}
-\end{tablist}
-
-% ===== Talks =====
-\section{Talks}
-
-\subsection{Invited Talks}
-\begin{tablist}
-  \item[2024] \tab{}Korea Regional Science Association. Using Residential Mobility and Assessor Data to Analyze the Links Between Apartment Flipping and Residential Displacement. Nov. 14
-  \item[2022] \tab{}Korea Development Institute. Analyzing Urban Displacement Through Spatial Data Analysis. Nov. 16
-\end{tablist}
-
-\subsection{Campus Talks UC Berkeley}
-\begin{tablist}
-  \item[2025] \tab{}Global Metropolitan Studies Program. Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance. Nov. 21 \term{scheduled}
-  \item[2025] \tab{}Institute for the Study of Societal Issues. Breaking Barriers, Building Community. May. 7
-  \item[2024] \tab{}ASUC Housing Commission. Housing Professionals Panel. Apr. 4
-  \item[2023] \tab{}Canadian Studies Program. Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets. Apr. 26
-\end{tablist}
 
 % ===== Research Positions =====
 \section{Research Positions}
