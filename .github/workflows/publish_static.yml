@@ -24,24 +24,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Setup Pages
-        uses: actions/configure-pages@v5  # Updated to v5
-      - name: Compile LaTex document
+        uses: actions/configure-pages@v5
+
+      - name: Compile LaTeX
         uses: xu-cheng/latex-action@v2
         with:
           root_file: song_taesoo_cv.tex
-      - name: List files in directory (for debugging)
-        run: ls -la
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v4  # Ensure it's v4 for uploading artifacts
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -jobname=CV_SONG_Taesoo
+
+      - name: Stage site
+        run: |
+          mkdir -p public
+          cp CV_SONG_Taesoo.pdf public/
+          cat > public/index.html <<'HTML'
+          <!doctype html><meta charset="utf-8">
+          <title>Taesoo Song — CV</title>
+          <h1>Taesoo Song — CV</h1>
+          <p><a href="CV_SONG_Taesoo.pdf">Download CV (PDF)</a></p>
+          HTML
+
+      # Optional: keep a build artifact too
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
           name: CV_SONG_Taesoo
           path: CV_SONG_Taesoo.pdf
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # Updated to v3
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: public
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4  # Updated to v4
+        uses: actions/deploy-pages@v4
