@@ -1,87 +1,52 @@
 \documentclass[10pt,letterpaper]{article}
 
-% Encoding, language, micro-typography
+% Encoding and typography
 \usepackage[T1]{fontenc}
 \usepackage[USenglish]{babel}
 \usepackage{microtype}
 
 % Fonts
 \usepackage{ebgaramond}   % serif text
-\usepackage{tgheros}      % sans headings
+\usepackage{tgheros}      % sans for headings
 
-% Page layout
+% Layout
 \usepackage[margin=0.7in]{geometry}
 \usepackage{setspace}
-\setstretch{1.00}         % readable body leading
+\setstretch{1.00}
 \setlength\parindent{0pt}
 
 % Lists and tabbed descriptions
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.25em}
-
-% bulletless itemize for compact detail lines
 \renewenvironment{itemize}
 {\begin{list}{}{\setlength{\leftmargin}{1em}
 \setlength{\parskip}{0em}
 \setlength{\itemsep}{\listitemspace}
 \setlength{\parsep}{\listitemspace}}}
 {\end{list}}
-
 \usepackage{tabto}
 \usepackage{tabularx}
 \newcommand{\listtabwidth}{2.2cm}
 \TabPositions{\listtabwidth}
 \newlist{tablist}{description}{3}
-\setlist[tablist]{
-  leftmargin=\listtabwidth,
-  labelsep=0.6em,
-  labelindent=0pt,
-  topsep=0.3\baselineskip,
-  partopsep=0pt,
-  itemsep=\listitemspace,
-  parsep=\listitemspace,
-  font=\normalfont\itshape
-}
+\setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
+  topsep=0.3\baselineskip,partopsep=0pt,itemsep=\listitemspace,parsep=\listitemspace,
+  font=\normalfont\itshape}
 
-% Section headings
+% Headings
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
-
-% 1) Replace titlerule in the section rule macro
 \newcommand{\SectionRule}{%
   \vspace{0.2\baselineskip}\noindent\rule{\linewidth}{0.6pt}\vspace{0.15\baselineskip}}
-
-% 2) Replace the underline below your name
-\noindent\rule{\linewidth}{0.8pt}
-
-
-\titleformat{\section}
-  {\sffamily\bfseries\Large\scshape}
-  {}{0pt}{\MakeUppercase}
-  [\SectionRule]
+\titleformat{\section}{\sffamily\bfseries\Large\scshape}{}{0pt}{\MakeUppercase}[\SectionRule]
 \titlespacing{\section}{0pt}{1.2\baselineskip}{0.5\baselineskip}
-
-\titleformat{\subsection}
-  {\sffamily\bfseries\normalsize}
-  {}{0pt}{}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize}{}{0pt}{} 
 \titlespacing{\subsection}{0pt}{0.9\baselineskip}{0.25\baselineskip}
-
-% Date utility (if needed)
-\usepackage{datetime}
-\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
 % Links
 \usepackage[hidelinks]{hyperref}
-\hypersetup{
-  colorlinks  = true,
-  urlcolor    = black,
-  citecolor   = black,
-  linkcolor   = black,
-  pdfauthor   = {Taesoo Song},
-  pdftitle    = {Taesoo Song: Curriculum Vitae},
-  pdfsubject  = {Curriculum Vitae},
-  pdfpagemode = UseNone
-}
+\hypersetup{colorlinks=true,urlcolor=black,citecolor=black,linkcolor=black,
+  pdfauthor={Taesoo Song},pdftitle={Taesoo Song: Curriculum Vitae},pdfsubject={CV}}
 
 % Name banner
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge #1}}
@@ -92,8 +57,8 @@
 % ===== Header =====
 \namefont{Taesoo Song}
 
-\vspace{0.25\baselineskip}
-\titlerule[0.8pt]
+% The rule MUST be here, not in the preamble
+\noindent\rule{\linewidth}{0.8pt}
 \vspace{0.6\baselineskip}
 
 \begin{minipage}[t]{0.66\textwidth}
