@@ -29,25 +29,27 @@
 % Label+content rows (Education, Grants, etc.)
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
-  itemsep=.36\baselineskip, parsep=0pt, topsep=0pt, partopsep=0pt, font=\normalfont}
+  itemsep=.38\baselineskip, parsep=0pt, topsep=0pt, partopsep=0pt, font=\normalfont}
 
-% Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
-\newlist{subpoints}{itemize}{1}
+% One-indent blocks (e.g., PH.D. details; depts; paper titles)
 \setlist[subpoints]{label={}, leftmargin=1.7em,
-  itemsep=.42\baselineskip, parsep=0pt, partopsep=0pt,
-  topsep=0pt, after=\vspace{.18\baselineskip}} % space after the block
+  topsep=.22\baselineskip,       % space before the first subpoint
+  itemsep=.40\baselineskip,      % spacing between subpoints
+  after=\vspace{.14\baselineskip},
+  parsep=0pt, partopsep=0pt}
 
+% One-indent block
 \newlist{subpoints1}{itemize}{1}
 \setlist[subpoints1]{label={}, leftmargin=1.7em,
-  itemsep=.42\baselineskip, parsep=0pt, partopsep=0pt,
-  topsep=0pt, after=\vspace{.18\baselineskip}}
+  topsep=.22\baselineskip,        % gap from degree line → first subpoint
+  itemsep=.40\baselineskip,       % between subpoints
+  after=\vspace{.14\baselineskip},% space after the block
+  parsep=0pt, partopsep=0pt}
 
-% Dotless second-level details (courses; venues/dates)
-\newlist{subpoints2}{itemize}{1}
+% Two-indent block (for reference)
 \setlist[subpoints2]{label={}, leftmargin=2.7em,
-  itemsep=.24\baselineskip, parsep=0pt, partopsep=0pt,
-  topsep=.14\baselineskip, after=0pt}           % space before this block
-
+  topsep=.16\baselineskip, itemsep=.26\baselineskip,
+  after=0pt, parsep=0pt, partopsep=0pt}
 
 % Helpers
 \newcommand{\money}[1]{(\$#1)}
