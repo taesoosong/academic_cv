@@ -23,7 +23,7 @@
 \TabPositions{\listtabwidth}
 
 % --- Page-break control for list items ---
-\usepackage{needspace}
+\usepackage{needspace} % <- only once
 
 % --- Lists (clear separation + safe page breaks) ---
 \usepackage{enumitem}
@@ -50,8 +50,8 @@
   itemsep=0.42\baselineskip,
   parsep=0pt,
   partopsep=0pt,
-  % Keep each item from splitting awkwardly across pages; scope locally.
-  before=\begingroup\let\olditem\item \renewcommand{\item}{\Needspace{3.2\baselineskip}\olditem},
+  % Safer needspace in lists: ensure vertical mode first
+  before=\begingroup\let\olditem\item \renewcommand{\item}{\par\needspace{3\baselineskip}\olditem},
   after=\endgroup \vspace{0.14\baselineskip}
 }
 
@@ -64,7 +64,7 @@
   itemsep=0.28\baselineskip,
   parsep=0pt,
   partopsep=0pt,
-  before=\begingroup\let\olditem\item \renewcommand{\item}{\Needspace{2.4\baselineskip}\olditem},
+  before=\begingroup\let\olditem\item \renewcommand{\item}{\par\needspace{2.4\baselineskip}\olditem},
   after=\endgroup
 }
 
