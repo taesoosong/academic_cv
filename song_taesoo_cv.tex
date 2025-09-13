@@ -24,7 +24,7 @@
 
 % Lists (clear separation for top-level items)
 \usepackage{enumitem}
-\newcommand{\listitemspace}{0.25em}
+\newcommand{\listitemspace}{0.30em}
 
 % Label+content rows (Education, Grants, etc.)
 \newlist{tablist}{description}{3}
@@ -35,13 +35,13 @@
 \newlist{subpoints}{itemize}{1}
 \setlist[subpoints]{label={},leftmargin=1.6em,
   itemsep=.55\baselineskip, parsep=0pt, partopsep=0pt,
-  topsep=0pt, after=\vspace{.20\baselineskip}} % <-- space after list
+  topsep=.16pt, after=\vspace{.20\baselineskip}} % <-- space after list
 
 % Dotless second-level details (courses; venues/dates)
 \newlist{subpoints2}{itemize}{1}  
 \setlist[subpoints2]{label={},leftmargin=2.6em,
   itemsep=.28\baselineskip, parsep=0pt, partopsep=0pt,
-  topsep=.16\baselineskip, after=0pt}           % <-- space before list
+  topsep=.10\baselineskip, after=0pt}           % <-- space before list
 
 % Helpers
 \newcommand{\money}[1]{(\$#1)}
@@ -117,9 +117,9 @@ University of California, Berkeley
   \item[M.S.] \tab{}\textbf{Urban Planning and Engineering, Yonsei University}, 2019
 
   \item[B.A.] \tab{}\textbf{Economics, Yonsei University}, 2017
-    \begin{subpoints2}
-      \item Graduated with the Highest Honors valedictorian
-    \end{subpoints2}
+    \begin{subpoints1}
+      \item Graduated with the Highest Honors (Valedictorian)
+    \end{subpoints1}
 \end{tablist}
 
 % ===== Research Areas =====
