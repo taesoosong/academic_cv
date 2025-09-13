@@ -15,15 +15,10 @@
 \setstretch{1.00}
 \setlength\parindent{0pt}
 
-% Lists & tabbed descriptions
+% Lists & tabbed descriptions (enumitem only; no manual itemize override)
 \usepackage{enumitem}
 \newcommand{\listitemspace}{0.25em}
-\renewenvironment{itemize}
-{\begin{list}{}{\setlength{\leftmargin}{1em}
-\setlength{\parskip}{0pt}
-\setlength{\itemsep}{\listitemspace}
-\setlength{\parsep}{\listitemspace}}}
-{\end{list}}
+\setlist[itemize]{leftmargin=1em,itemsep=\listitemspace,parsep=\listitemspace,topsep=0pt,partopsep=0pt}
 
 \usepackage{tabto}
 \usepackage{tabularx}
@@ -326,6 +321,6 @@ Urban Affairs Association
 
 % ===== Footer =====
 \vspace{1.0\baselineskip}
-{\footnotesize Last updated: September 2025}
+{\footnotesize Last updated: 09/12/2025}
 
 \end{document}
