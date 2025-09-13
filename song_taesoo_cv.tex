@@ -27,39 +27,35 @@
 
 \usepackage{tabto}
 \usepackage{tabularx}
-\newcommand{\listtabwidth}{2.0cm} % slightly narrower gutter
+\newcommand{\listtabwidth}{2.0cm}
 \TabPositions{\listtabwidth}
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,labelsep=0.6em,labelindent=0pt,
   topsep=0.3\baselineskip,partopsep=0pt,itemsep=\listitemspace,parsep=\listitemspace,
-  font=\normalfont} % upright labels (no italics)
+  font=\normalfont}
 
 % Gentle overfull handling
 \setlength{\emergencystretch}{2em}
 
 % Helpers
-\newcommand{\money}[1]{(\$#1)}  % e.g., \money{4,500}
-\newcommand{\term}[1]{(#1)}     % e.g., \term{2024Su}
+\newcommand{\money}[1]{(\$#1)}
+\newcommand{\term}[1]{(#1)}
 
-% Headings (sizes pinned so 11pt body doesn't inflate them)
+% Headings (pinned sizes; zero gap between title and rule)
 \usepackage{titlesec}
 \SetTracking{encoding=*, family=\sfdefault}{30}
-\newcommand{\SectionRule}{%
-  \vspace{0.04\baselineskip}%
-  \noindent\rule{\linewidth}{0.5pt}%
-  \vspace{0.06\baselineskip}%
-}
+\newcommand{\SectionRule}{\par\noindent\rule{\linewidth}{0.5pt}} % no vspace
 \titleformat{\section}
   {\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}
   {}{0pt}{\MakeUppercase}
   [\SectionRule]
-\titlespacing{\section}{0pt}{0.8\baselineskip}{0.25\baselineskip}
+\titlespacing{\section}{0pt}{0.8\baselineskip}{0pt} % after=0pt
 \titleformat{\subsection}
   {\sffamily\bfseries\fontsize{11}{13}\selectfont}
   {}{0pt}{}
 \titlespacing{\subsection}{0pt}{0.6\baselineskip}{0.18\baselineskip}
 
-% Links: muted color; single hyperref load (PDF.js-safe)
+% Links: muted color; single hyperref load
 \usepackage{xcolor}
 \definecolor{linktone}{HTML}{1B3A57}
 \usepackage[colorlinks=true,linkcolor=linktone,urlcolor=linktone,citecolor=linktone]{hyperref}
@@ -264,71 +260,4 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
   \item Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas. \textbf{Song, T.} \& Chapple, K.
     \begin{itemize}
       \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{UAA}, New York, NY. Apr. 26, 2024
-      \item[•] \emph{ACSP}, Toronto, ON. Nov. 5, 2022
-    \end{itemize}
-\end{itemize}
-
-\subsection{Roundtables}
-\begin{tablist}
-  \item[2025] \tab{}The Promise and Pitfalls of Commercial Microdata for Planning Research. Ramiller, A., Chapple, K., Greenlee, A. \& \textbf{Song, T.}, Xu, W. \emph{ACSP}, Minneapolis, MN. Oct. 24 \term{scheduled}
-\end{tablist}
-
-% ===== Talks =====
-\section{Talks}
-
-\subsection{Invited Talks}
-\begin{tablist}
-  \item[2024] \tab{}Korea Regional Science Association. Using Residential Mobility and Assessor Data to Analyze the Links Between Apartment Flipping and Residential Displacement. Nov. 14
-  \item[2022] \tab{}Korea Development Institute. Analyzing Urban Displacement Through Spatial Data Analysis. Nov. 16
-\end{tablist}
-
-\subsection{Campus Talks UC Berkeley}
-\begin{tablist}
-  \item[2025] \tab{}Global Metropolitan Studies Program. Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance. Nov. 21 \term{scheduled}
-  \item[2025] \tab{}Institute for the Study of Societal Issues. Breaking Barriers, Building Community. May. 7
-  \item[2024] \tab{}ASUC Housing Commission. Housing Professionals Panel. Apr. 4
-  \item[2023] \tab{}Canadian Studies Program. Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets. Apr. 26
-\end{tablist}
-
-% ===== Research Positions =====
-\section{Research Positions}
-\begin{tablist}
-  \item[2023– ] \tab{}Graduate Student Researcher, \href{https://ternercenter.berkeley.edu/}{Terner Center for Housing Innovation}, Oakland, CA, USA
-  \item[2021–2023] \tab{}Graduate Student Researcher, \href{https://www.urbandisplacement.org/}{Urban Displacement Project}, Berkeley, CA, USA
-  \item[2019–2021] \tab{}Researcher, Seoul Institute, Seoul, South Korea
-\end{tablist}
-
-% ===== Service =====
-\section{Service}
-
-\subsection{University of California, Berkeley}
-\begin{tablist}
-  \item[2024–2025] \tab{}City and Regional Planning PhD Admissions Committee
-  \item[2023] \tab{}Faculty Search Doctoral Student Lead land and housing economics
-\end{tablist}
-
-\subsection{Reviewer}
-\begin{tabular}{@{}p{0.47\textwidth} p{0.47\textwidth}@{}}
-\emph{Berkeley Planning Journal} & \emph{Cities}\\
-\emph{Housing Policy Debate} & \emph{Housing, Theory and Society}\\
-\emph{Humanities and Social Sciences Communications} & \emph{Regional Studies}\\
-\emph{Urban Sustainability} &
-\end{tabular}
-
-\subsection{Membership}
-Association of Collegiate Schools of Planning\\
-Association for Public Policy Analysis and Management\\
-Urban Affairs Association
-
-\subsection{Volunteering}
-\begin{tablist}
-  \item[2024– ] \tab{}\href{https://asiansarestrong.org/}{Asians Are Strong}, San Francisco, CA, USA
-  \item[2024– ] \tab{}Community Safety Buddies Oakland, Oakland, CA, USA
-\end{tablist}
-
-% ===== Footer =====
-\vspace{1.0\baselineskip}
-{\footnotesize Last updated: September 2025}
-
-\end{document}
+      \item[•] \emph{
