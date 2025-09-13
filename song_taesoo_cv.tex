@@ -20,7 +20,7 @@
 \newcommand{\listitemspace}{0.25em}
 \renewenvironment{itemize}
 {\begin{list}{}{\setlength{\leftmargin}{1em}
-\setlength{\parskip}{0em}
+\setlength{\parskip}{0pt}
 \setlength{\itemsep}{\listitemspace}
 \setlength{\parsep}{\listitemspace}}}
 {\end{list}}
@@ -49,7 +49,7 @@
   {\sffamily\bfseries\scshape\fontsize{14.4}{16.5}\selectfont}
   {}{0pt}{\MakeUppercase}
   [\SectionRule]
-\titlespacing{\section}{0pt}{0.8\baselineskip}{0pt} % after=0pt
+\titlespacing{\section}{0pt}{0.8\baselineskip}{0pt}
 \titleformat{\subsection}
   {\sffamily\bfseries\fontsize{11}{13}\selectfont}
   {}{0pt}{}
@@ -67,6 +67,19 @@
 
 % Name banner
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge #1}}
+
+% --- Approach A: dotless hanging lines ---
+\newenvironment{subpoints}{%
+  \begin{itemize}[label={},leftmargin=1.4em,itemsep=0.15\baselineskip,parsep=0pt,topsep=0pt]}%
+  {\end{itemize}}
+
+% Optional helpers for teaching hierarchy
+\newcommand{\institution}[1]{%
+  \par\vspace{0.35\baselineskip}%
+  {\sffamily\bfseries\fontsize{12.5}{14}\selectfont #1}\par
+  \vspace{0.15\baselineskip}%
+}
+\newcommand{\role}[1]{{\sffamily\bfseries #1}\par\vspace{0.2\baselineskip}}
 
 \begin{document}
 \raggedright
@@ -91,19 +104,19 @@ University of California, Berkeley
 \section{Education}
 \begin{tablist}
   \item[Ph.D.] \tab{}\textbf{City and Regional Planning, University of California, Berkeley}, 2026 expected
-    \begin{itemize}
+    \begin{subpoints}
       \item Designated Emphasis in Global Metropolitan Studies
       \item Dissertation: Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance
       \item Committee: Carolina Reid, Karen Chapple co chairs, Daniel Chatman, Irene Bloemraad
       \item Russell Sage Foundation Dissertation Research Grant, Awardee 2025
-    \end{itemize}
+    \end{subpoints}
 
   \item[M.S.] \tab{}\textbf{Urban Planning and Engineering, Yonsei University}, 2019
 
   \item[B.A.] \tab{}\textbf{Economics, Yonsei University}, 2017
-    \begin{itemize}
+    \begin{subpoints}
       \item Graduated with the Highest Honors valedictorian
-    \end{itemize}
+    \end{subpoints}
 \end{tablist}
 
 % ===== Research Areas =====
@@ -147,12 +160,12 @@ Asian American Studies & Urban Data Analytics
 
 % ===== Work in Progress =====
 \section{Work in Progress}
-\begin{itemize}
+\begin{subpoints}
   \item \textbf{Song, T.} Anti immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
   \item Reid, C. \& \textbf{Song, T.} The Implications of Naturally Occurring Affordable Housing NOAH Sales for Residential Mobility. Invited to revise and resubmit at \emph{Journal of the American Planning Association}.
   \item Davis, J., \textbf{Song, T.} \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low Income Households Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
   \item \textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership 2000–2019. Under review at \emph{Housing Studies}.
-\end{itemize}
+\end{subpoints}
 
 % ===== Grants and Fellowships =====
 \section{Grants and Fellowship}
@@ -187,25 +200,34 @@ Asian American Studies & Urban Data Analytics
 % ===== Teaching =====
 \section{Teaching}
 
-\subsection{University of California, Berkeley}
-\textbf{City and Regional Planning  Instructor of Record}\\[0.2em]
-U.S. Housing, Planning, and Policy \term{2024Su}\\
-\quad Overall effectiveness rating 6.70 of 7.00 department average 6.27\\[0.2em]
-Introduction to Urban Data Analytics \term{2023Su}\\
-\quad Overall effectiveness rating 6.44 of 7.00 department average 6.29\\[0.5em]
+\institution{University of California, Berkeley}
+\role{City and Regional Planning  Instructor of Record}
+\begin{subpoints}
+  \item U.S. Housing, Planning, and Policy \term{2024Su}\\[-0.15em]
+        {\footnotesize Overall effectiveness 6.70/7.00; dept avg 6.27}
+  \item Introduction to Urban Data Analytics \term{2023Su}\\[-0.15em]
+        {\footnotesize Overall effectiveness 6.44/7.00; dept avg 6.29}
+\end{subpoints}
 
-\textbf{D Lab  Workshop Instructor and Assistant Instructor}\\[0.2em]
-\textbf{R:} Fundamentals \term{2024F, 2025F}, Data Wrangling \term{2025F}, Data Visualization \term{2025S}, Geospatial Fundamentals \term{2024F, 2025F}, Census Fundamentals \term{2025S}, SQL Fundamentals \term{2025S}, AI assisted Coding \term{2025F}\\[0.2em]
-\textbf{Python:} Geospatial Fundamentals \term{2025S}, Machine Learning Fundamentals \term{2025S}\\[0.2em]
-\textbf{Excel:} Data Analysis Introduction \term{2025S}, Charts Pivot Tables and VLOOKUP \term{2025S}
+\role{D Lab  Workshop Instructor and Assistant Instructor}
+\begin{subpoints}
+  \item \textbf{R:} Fundamentals \term{2024F, 2025F}; Data Wrangling \term{2025F}; Data Visualization \term{2025S}; Geospatial Fundamentals \term{2024F, 2025F}; Census Fundamentals \term{2025S}; SQL Fundamentals \term{2025S}; AI assisted Coding \term{2025F}
+  \item \textbf{Python:} Geospatial Fundamentals \term{2025S}; Machine Learning Fundamentals \term{2025S}
+  \item \textbf{Excel:} Data Analysis Introduction \term{2025S}; Charts Pivot Tables and VLOOKUP \term{2025S}
+\end{subpoints}
 
-\subsection{Yonsei University}
-\textbf{Underwood International College  Teaching Assistant}\\[0.2em]
-World History Group II \term{2019S}\\
-World History Group I \term{2018F, 2019S}\\[0.5em]
-\textbf{Urban Planning and Engineering  Teaching Assistant}\\[0.2em]
-Urban and Regional Economics \term{2018S}\\
-National and Regional Planning \term{2017F}
+\institution{Yonsei University}
+\role{Underwood International College  Teaching Assistant}
+\begin{subpoints}
+  \item World History Group II \term{2019S}
+  \item World History Group I \term{2018F, 2019S}
+\end{subpoints}
+
+\role{Urban Planning and Engineering  Teaching Assistant}
+\begin{subpoints}
+  \item Urban and Regional Economics \term{2018S}
+  \item National and Regional Planning \term{2017F}
+\end{subpoints}
 
 % ===== Conferences =====
 \section{Conferences}
@@ -218,46 +240,92 @@ ACSP Association of Collegiate Schools of Planning, APPAM Association for Public
 
 \subsection{Conference Papers Presented}
 {\footnotesize\emph{* Presented by other authors.}}
-\begin{itemize}
+\begin{subpoints}
   \item How Does Suburban Housing Supply Shape Asian American Segregation \textbf{Song, T.}
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}
-      \item[•] \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}
-    \end{itemize}
+        \\[-0.15em]{\footnotesize \emph{ACSP}, Minneapolis, MN. Oct. 23, 2025 \term{scheduled}}
+        \\[-0.15em]{\footnotesize \emph{APPAM}, Seattle, WA. Nov. 15, 2025 \term{scheduled}}
 
   \item How Does Upzoning Impact Residential Mobility Among Low Income Households Evidence from New York City. Davis, J., \textbf{Song, T.} \& Chapple, K.
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{UAA}, Vancouver, BC. Apr. 17, 2025*
-    \end{itemize}
+        \\[-0.15em]{\footnotesize \emph{UAA}, Vancouver, BC. Apr. 17, 2025*}
 
   \item Does Apartment Flipping Fuel Residential Displacement Insights from Assessor and Mobility Data. Reid, C. \& \textbf{Song, T.}
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{ACSP}, Seattle, WA. Nov. 18, 2024
-    \end{itemize}
+        \\[-0.15em]{\footnotesize \emph{ACSP}, Seattle, WA. Nov. 18, 2024}
 
   \item Reassessing the Heterogeneity of Asian American Housing Outcomes 2000–2019. \textbf{Song, T.}
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{ACSP}, Seattle, WA. Nov. 19, 2024
-    \end{itemize}
+        \\[-0.15em]{\footnotesize \emph{ACSP}, Seattle, WA. Nov. 19, 2024}
 
   \item Measuring Residential Mobility Using Consumer Reference Datasets. Ramiller, A., \textbf{Song, T.}, Parker, M. \& Chapple, K.
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{ACSP}, Seattle, WA. Nov. 18, 2024*
-      \item[•] \emph{UAA}, New York, NY. Apr. 26, 2024*
-    \end{itemize}
+        \\[-0.15em]{\footnotesize \emph{ACSP}, Seattle, WA. Nov. 18, 2024*}
+        \\[-0.15em]{\footnotesize \emph{UAA}, New York, NY. Apr. 26, 2024*}
 
   \item Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets. \textbf{Song, T.}
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{ACSP}, Chicago, IL. Oct. 21, 2023
-    \end{itemize}
+        \\[-0.15em]{\footnotesize \emph{ACSP}, Chicago, IL. Oct. 21, 2023}
 
   \item Does Gentrification Constrain Housing Markets for Low income Households Evidence from Household Residential Mobility in the New York and San Francisco Metropolitan Areas. \textbf{Song, T.} \& Chapple, K.
-    \begin{itemize}
-      \addtolength{\leftskip}{1em}\setlength{\itemsep}{-0.4em}
-      \item[•] \emph{
+        \\[-0.15em]{\footnotesize \emph{UAA}, New York, NY. Apr. 26, 2024}
+        \\[-0.15em]{\footnotesize \emph{ACSP}, Toronto, ON. Nov. 5, 2022}
+\end{subpoints}
+
+\subsection{Roundtables}
+\begin{tablist}
+  \item[2025] \tab{}The Promise and Pitfalls of Commercial Microdata for Planning Research. Ramiller, A., Chapple, K., Greenlee, A. \& \textbf{Song, T.}, Xu, W. \emph{ACSP}, Minneapolis, MN. Oct. 24 \term{scheduled}
+\end{tablist}
+
+% ===== Talks =====
+\section{Talks}
+
+\subsection{Invited Talks}
+\begin{tablist}
+  \item[2024] \tab{}Korea Regional Science Association. Using Residential Mobility and Assessor Data to Analyze the Links Between Apartment Flipping and Residential Displacement. Nov. 14
+  \item[2022] \tab{}Korea Development Institute. Analyzing Urban Displacement Through Spatial Data Analysis. Nov. 16
+\end{tablist}
+
+\subsection{Campus Talks UC Berkeley}
+\begin{tablist}
+  \item[2025] \tab{}Global Metropolitan Studies Program. Housing Stratification Beyond the Black White Binary: Asian Americans and the Regimes of Immigration and Housing Governance. Nov. 21 \term{scheduled}
+  \item[2025] \tab{}Institute for the Study of Societal Issues. Breaking Barriers, Building Community. May. 7
+  \item[2024] \tab{}ASUC Housing Commission. Housing Professionals Panel. Apr. 4
+  \item[2023] \tab{}Canadian Studies Program. Affordability for Whom The Impacts of Foreign Buyer Taxes on British Columbia and Ontario Rental Housing Markets. Apr. 26
+\end{tablist}
+
+% ===== Research Positions =====
+\section{Research Positions}
+\begin{tablist}
+  \item[2023– ] \tab{}Graduate Student Researcher, \href{https://ternercenter.berkeley.edu/}{Terner Center for Housing Innovation}, Oakland, CA, USA
+  \item[2021–2023] \tab{}Graduate Student Researcher, \href{https://www.urbandisplacement.org/}{Urban Displacement Project}, Berkeley, CA, USA
+  \item[2019–2021] \tab{}Researcher, Seoul Institute, Seoul, South Korea
+\end{tablist}
+
+% ===== Service =====
+\section{Service}
+
+\subsection{University of California, Berkeley}
+\begin{tablist}
+  \item[2024–2025] \tab{}City and Regional Planning PhD Admissions Committee
+  \item[2023] \tab{}Faculty Search Doctoral Student Lead land and housing economics
+\end{tablist}
+
+\subsection{Reviewer}
+\begin{tabular}{@{}p{0.47\textwidth} p{0.47\textwidth}@{}}
+\emph{Berkeley Planning Journal} & \emph{Cities}\\
+\emph{Housing Policy Debate} & \emph{Housing, Theory and Society}\\
+\emph{Humanities and Social Sciences Communications} & \emph{Regional Studies}\\
+\emph{Urban Sustainability} &
+\end{tabular}
+
+\subsection{Membership}
+Association of Collegiate Schools of Planning\\
+Association for Public Policy Analysis and Management\\
+Urban Affairs Association
+
+\subsection{Volunteering}
+\begin{tablist}
+  \item[2024– ] \tab{}\href{https://asiansarestrong.org/}{Asians Are Strong}, San Francisco, CA, USA
+  \item[2024– ] \tab{}Community Safety Buddies Oakland, Oakland, CA, USA
+\end{tablist}
+
+% ===== Footer =====
+\vspace{1.0\baselineskip}
+{\footnotesize Last updated: September 2025}
+
+\end{document}
