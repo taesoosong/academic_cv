@@ -34,14 +34,14 @@
 % Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
 \newlist{subpoints}{itemize}{1}
 \setlist[subpoints]{label={},leftmargin=1.6em,
-  itemsep=.55\baselineskip, parsep=0pt,
-  topsep=0pt, bottomsep=.20\baselineskip}
+  itemsep=.55\baselineskip, parsep=0pt, partopsep=0pt,
+  topsep=0pt, after=\vspace{.20\baselineskip}} % <-- space after list
 
 % Dotless second-level details (courses; venues/dates)
 \newlist{subpoints2}{itemize}{1}  
 \setlist[subpoints2]{label={},leftmargin=2.6em,
-  itemsep=.24\baselineskip, parsep=0pt,
-  topsep=.0\baselineskip, bottomsep=0pt}
+  itemsep=.28\baselineskip, parsep=0pt, partopsep=0pt,
+  topsep=.16\baselineskip, after=0pt}           % <-- space before list
 
 % Helpers
 \newcommand{\money}[1]{(\$#1)}
