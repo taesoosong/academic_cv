@@ -43,6 +43,16 @@
   font=\normalfont
 }
 
+% Inline “subpoints” with same spacing as your list
+\newenvironment{inlinesubpoints}{%
+  \par\vspace{0.22\baselineskip}% topsep
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \setlength{\parskip}{0.42\baselineskip}% itemsep
+}{%
+  \par\endgroup
+}
+
 % Dotless top-level items (Teaching depts; Conference paper titles; WIP papers)
 \newlist{subpoints}{itemize}{1}
 \setlist[subpoints]{%
@@ -187,12 +197,12 @@ Asian American Studies & Urban Data Analytics
 
 % ===== Work in Progress =====
 \section{Work in Progress}
-\begin{subpoints}
-  \spitem \textbf{Song, T.} Anti-immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
-  \spitem Reid, C., \& \textbf{Song, T.} The Implications of Naturally Occurring Affordable Housing (NOAH) Sales for Residential Mobility. Invited to revise and resubmit at \emph{Journal of the American Planning Association}.
-  \spitem Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
-  \spitem \textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership, 2000–2019. Under review at \emph{Housing Studies}.
-\end{subpoints}
+\begin{inlinesubpoints}
+\textbf{Song, T.} Anti-immigration and the Politics of Housing Affordability: Examining the Evolution and Housing Market Impacts of Foreign Buyer Taxes in British Columbia and Ontario. Conditionally accepted at \emph{Journal of Urban Affairs}.
+Reid, C., \& \textbf{Song, T.} The Implications of NOAH Sales for Residential Mobility. Invited to revise and resubmit at \emph{JAPA}.
+Davis, J., \textbf{Song, T.}, \& Chapple, K. How Does Upzoning Impact Residential Mobility Among Low-Income Households? Evidence from New York City. Invited to revise and resubmit at \emph{Housing Policy Debate}.
+\textbf{Song, T.} Immigration, Housing Markets, and Ethnic Divergence in Asian American Homeownership, 2000–2019. Under review at \emph{Housing Studies}.
+\end{inlinesubpoints}
 
 % ===== Grants and Fellowship =====
 \section{Grants and Fellowship}
